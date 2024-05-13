@@ -1,0 +1,1786 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JMenu" name="jMenu1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenu1"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+      </Properties>
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="menu">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="menuUsuario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Usuario"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuFondoDeEscritorio">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgUsuarioFondo.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fondo de Escruitorio"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFondoDeEscritorioActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuCambioDeClave">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgMenuCambiarClave.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cambiar Clave Usuario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCambioDeClaveActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuMovimiento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Movimiento"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Movimiento &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Aqui se registran todos los movimientos de inventario,&quot;&#xd;&#xa;+ &quot; como ventas, compras, cobros, etc.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuMovimientoCompras">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Compras"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAbonoProveedores">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgAbonoProveedores.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Abono a Proveedores"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Abono a Proveedores&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Esta pantalla se utiliza para ingresar los Abonos correspondientes a las Facturas a Proveedores que hayan sido almacenadas al Cr&#xe9;dito.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAbonoProveedoresActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuCompraDeProductos">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoCompraDeProductos.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Compra de Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Compra de Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Aqui se ingresan las facturas de compra para actualizar el inventario de productos. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCompraDeProductosActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuRetencionProveedor">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imbMovimientoRetencionProveedor.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Retenci&#xf3;n Proveedor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRetencionProveedorActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuMovimientoInventario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inventario"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAjusteInventario">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoAjusteInventario.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ajuste Inventario"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Abono de Clientes &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de abonos de ventas al credito a clientes.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAjusteInventarioActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuIntercambiarSerie">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoIntercambiarSerie.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Intercambiar Serie"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuIntercambiarSerieActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTraslado">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaTrasladoDeProducto.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Traslado de Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Traslado de Productos&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Tralado de Productos a otra Sucursal a precio costo.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTrasladoActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuMovimientoGarantia">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garantia"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuMovimientoGarantiaCliente">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoGarantiaCliente.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Garantia Cliente"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMovimientoGarantiaClienteActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuMovimientoGarantiaProveedor">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoGarantiaProveedor.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Garantia Proveedor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMovimientoGarantiaProveedorActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuMovimientoVentas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ventas"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAbonoDeClientes">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoAbonos.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Abono de Clientes"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Anular Venta &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Anular una venta y regresar todos los productos al inventario &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAbonoDeClientesActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAnulacionVentas">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoAnularVenta.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Anular Venta"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Anular Venta &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Anular una venta y regresar todos los productos al inventario &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAnulacionVentasActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAnticipo">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoAnticipos.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Anticipos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAnticipoActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuCierreDeCaja">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/bntBotonEfectivo.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Cierre De Caja"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Cierre de Caja&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingresar el efectivo en la apertura y en cierre de Caja.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCierreDeCajaActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuProforma">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoProforma.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Crear Proforma"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Crear Proforma &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de proformas o cotizaciones si afectar invenario.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProformaActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuVentasActivas">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaVentasActivas.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas Activas"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas Activas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de facturas y cobros de ventas emitadas en el mostrador.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuVentasActivasActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuVentaDeProductos">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovimientoVentaDeProductos.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Venta de Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Venta de Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Generacion de ventas al credito o contado de productos.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuVentaDeProductosActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuMovimientoTaller">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Taller"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuOrdenDeServicio">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgMovmientoOrdenDeServicio.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Orden de Servicio"/>
+                    <Property name="toolTipText" type="java.lang.String" value="&quot;&lt;html&gt; &lt;table width=\u005c&quot;200px\u005c&quot; height=\u005c&quot;75px\u005c&quot;&gt;&quot;&#xa;+ &quot;&lt;tr bgcolor=\u005c&quot;#FE642E\u005c&quot;&gt;&quot;&#xa;+ &quot;&lt;td font color=\u005c&quot;#FFFFFF\u005c&quot;&gt;&quot;&#xa;+ &quot;&lt;h2&gt;Orde de Servicio&lt;/h2&gt;&quot;&#xa;+ &quot;&lt;/td&gt;&quot;&#xa;+ &quot;&lt;img src=\u005c&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\u005c&quot; /&gt;&quot;&#xa;+ &quot;&lt;td&gt;&quot;&#xa;+ &quot;&lt;/td&quot;&#xa;+ &quot;&lt;/tr colspan=\u005c&quot;2\u005c&quot;&gt;&quot;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xa;+ &quot;Creaci&#xf3;n de Ordenes de Servicio para los equipos recibidos para reparaci&#xf3;n o revisi&#xf3;n.&quot;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;&#xa;" containsInvalidXMLChars="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuOrdenDeServicioActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuCatalogo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Catalogo"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Catalogo &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Informacion necesaria para el correcto &quot;&#xd;&#xa;+ &quot;funcionamiento del sistema.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuCategorias">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoCategorias.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Categorias"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Categorias&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Creaci&#xf3;n de categorias o tipos de producto. En algunos casos tambien llamado familias.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCategoriasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuMarcas">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoMarca.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Marcas"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Marcas&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Se utiliza para crear las distintas marcas que existen en el Inventario.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMarcasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProductos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoProductos.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Productos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Gestion del catalogo de productos, precios, costo, etc. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuFallas">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoFalla.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fallas"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Fallas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Creaci&#xf3;n de tipos de Fallas para las Ordenes de Servicio.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFallasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuSeries">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgBotonCodigoDeBarraMini.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Series"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Serie &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Consulta las Series que existen dentro del Inventario.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuSeriesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuConsultaProductos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoConsulta.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Consulta"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Consulta&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Consulta de precio y existencia para los vendedores. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuConsultaProductosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="sepMenuCatalogoUno">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuSucursales">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoSucursales.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sucursales"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Sucursales &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Informacion de las distintas sucursales. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuSucursalesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuEmpleados">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoEmpleados.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Empleados"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Empleados &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Gestion de empleados, informacion y bonificaciones. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEmpleadosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuUsuarios">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalgoUsuarios.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Usuarios"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Usuarios &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Creacion de usuarios para ingreso al sistema.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuUsuariosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBonificaciones">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoBonificaciones.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Bonificaciones"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Bonificaciones &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Creacion de bonificaciones especiales por producto&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBonificacionesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="sepMenuCatalogoDos">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuClientes">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoClientes.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Clientes"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Clientes &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Registro de nuevos clientes y gestion de dias de credito.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuClientesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProveedores">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalgoProveedores.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Proveedores"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Proveedores &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Informacion de proveedores para la compra de productos.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProveedoresActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuContabilidad">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contabilidad"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Contabilidad &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de cuentas varias para generacion del&quot;&#xd;&#xa;+ &quot;estado de resultados del negocio.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuSalario">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgContabilidadSalarios.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Planilla"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ingreso de Salarios &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de salarios pagados a los empleados por fecha.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ingreso de Salarios &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/tooltip.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de salarios pagados a empleados&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuSalarioActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuContabilidadEgresoPago">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgContabilidadPagos.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Gastos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ingreso de Pagos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de gastos administrativos por fecha y concepto para el estado de resultados. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ingreso de Gastos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/tooltip.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Ingreso de gastos administrativos para el estado de resultados. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuContabilidadEgresoPagoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuContabilidadMobiliarioEquipo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgContabilidadEquipo.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Equipo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuContabilidadMobiliarioEquipoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            </MenuItem>
+            <Menu class="javax.swing.JMenu" name="menuContabilidadReportes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reportes"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuContabilidadReportePagosFecha">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Gastos por Fecha"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuContabilidadReportePagosFechaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuReportes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reportes"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Reportes &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de reportes varios generados&quot;&#xd;&#xa;+ &quot; atraves del ingreso de movimientos en&quot;&#xd;&#xa;+ &quot; el inventario.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuComisiones">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Comisiones"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesComisionesSucursal">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Comisiones por Empleado"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Comisiones por Empleado &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Cantidad total de comisiones generadas&quot;&#xd;&#xa;+ &quot; por cada empleado en un rango de fechas.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursalActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesComisionesSucursal1">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Comisiones por Sucursal"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Comisiones por Sucursal &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Total de las comisiones pagadas en la sucursal.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursal1ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesComisionesSucursal3">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Comisiones sin Abonos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Comisiones sin Abonos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Cantidad total de comisiones generadas&quot;&#xd;&#xa;+ &quot; por cada empleado en un rango de fechas, de&quot;&#xd;&#xa;+ &quot; ventas al contado sin incluir abonos a&quot;&#xd;&#xa;+ &quot; facturas pendientes de pago.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursal3ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesBonificacionesPorEmpleado">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Bonificaciones por Empleado"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesBonificacionesPorEmpleadoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuCompras">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Compras"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesComprasPorFecha">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Compras por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Compras por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Monto total de facturas emitidas por proveedor, &quot;&#xd;&#xa;+ &quot;ordenadas por fecha y nombre de proveedor.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComprasPorFechaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleVenta1">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Compras por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Compras por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra el total compras realizadas a cada &quot;&#xd;&#xa;+ &quot;proveedor organizadas por nombre de proveedor &quot;&#xd;&#xa;+ &quot; y fecha. Se detalla cada producto por numero de&quot;&#xd;&#xa;+ &quot; factura con el su respectivo precio de compra.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleVenta1ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleAbonosProveedor">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Abonos a Proveedor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleAbonosProveedorActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuVentas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ventas"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesAbonosDetalle">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Abonos por Cliente"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Abonos por Cliente Detallado &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Historial de abonos realizados por cliente.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="Abonos por Cliente Detale"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesAbonosDetalleActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFechaFEL">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas FEL por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Monto total de facturas emitidas a cada cliente&quot;&#xd;&#xa;+ &quot; ordenadas por fecha y nombre de cliente.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaFELActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="12"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFechaSinFEL">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas Sin Factura FEL"/>
+                    <Property name="actionCommand" type="java.lang.String" value="Ventas Sin Factura FEL"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaSinFELActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFecha">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Monto total de facturas emitidas a cada cliente&quot;&#xd;&#xa;+ &quot; ordenadas por fecha y nombre de cliente.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleVenta">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Ventas por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra cada producto vendido por factura, el sub total&quot;&#xd;&#xa;+ &quot; y el total de todas las ventas realizadas &quot;&#xd;&#xa;+ &quot; en el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleVentaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleGanancia">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Ganancias por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ganancias por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra la cantidad total de productos vendidos&quot;&#xd;&#xa;+ &quot; y la ganancia alcanzada por cada producto, totalizado&quot;&#xd;&#xa;+ &quot; mediante el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleGananciaActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesComisionesSucursal2">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas por Cliente"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas por Cliente &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra el historico de ventas realizadas &quot;&#xd;&#xa;+ &quot; a cada cliente y el estado en el que se &quot;&#xd;&#xa;+ &quot; encuentra cada una de ellas, ordenadas por fecha.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursal2ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="menuInventario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inventario"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuInventarioImpreso">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Inventario Impreso"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Inventario Impreso &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion del inventario por proveedor, &quot;&#xd;&#xa;+ &quot;muestra las existencias el costo del &quot;&#xd;&#xa;+ &quot;producto total segun lo registrado en el &quot;&#xd;&#xa;+ &quot;catalogo de productos.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuInventarioImpresoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesMovimientoProducto">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Movimiento de Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Movimiento de Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Cantidad comprada y vendida de productos&quot;&#xd;&#xa;+ &quot; en un rango de fechas&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="Movimiento de los productos por fecha"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesMovimientoProductoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuExistenciaPorLinea">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Existencia por Linea"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Existencia por Lineas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion del inventario con una linea para ingresar cantidad actual.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExistenciaPorLineaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAjusteInventarioReporte">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ajuste de Inventario"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ajuste de Inventario &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion ajustes realizados al inventario. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAjusteInventarioReporteActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTopProductos">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Top Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos mas vendidos, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopProductosActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTopGanancia">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Top Ganancia"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Ganancia&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos que generan ganancia, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopGananciaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuProductosAlMinimo">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Productos Al Minimo"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Productos al Minimo &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion del listado de productos que &quot;&#xd;&#xa;+ &quot;se encuentran al minimo hasta el dia de hoy &quot;&#xd;&#xa;+ &quot;este incluye los valores negativos. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosAlMinimoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuProductosEnNegativo">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Productos En Negativo"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Productos en Negativo &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Listado de productos que deben ser &quot;&#xd;&#xa;+ &quot;verificados, ya que al estar en negativo &quot;&#xd;&#xa;+ &quot;tienen algun problema en el valor que &quot;&#xd;&#xa;+ &quot;poseen en el campo existencia.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosEnNegativoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTrazabilidadSerie">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Trazabilidad Serie"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTrazabilidadSerieActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuBaseDeDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Base de Datos"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Base de Datos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Gestion de la informacion contnida en el sistema.&quot;&#xd;&#xa;+ &quot; Algunas opciones unicamente puede realizarlas &quot;&#xd;&#xa;+ &quot; el desarrolador o usuario lider.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuExportarCatalogoDeProductos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgBaseDeDatosExportar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Exportar Catalogo de Productos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Exportar Catalogo de Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Exporta en formato CSV el catalogo de productos.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExportarCatalogoDeProductosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuImportarCatalogoDeProductos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgBaseDeDatosImportar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Importar Catalogo de Productos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Importar Catalogo de Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Importa el catalogo de productos &quot;&#xd;&#xa;+ &quot;desde un archivo CSV.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuImportarCatalogoDeProductosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="sepExportar">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialAnticipos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialAnticipos.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Anticipos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialAnticiposActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialDeCompras">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialCompras.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Compras de Productos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Historial de Compras &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra el historial de compras en un rango &quot;&#xd;&#xa;+ &quot;de fechas y permite visualizar las facturas &quot;&#xd;&#xa;+ &quot;o comprobante de dichas compras.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialDeComprasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialDeVentas">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialVentas.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Ventas de Productos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Historial de Ventas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra el historial de ventas en un rango &quot;&#xd;&#xa;+ &quot;de fechas y permite visualizar las facturas &quot;&#xd;&#xa;+ &quot;o comprobante de dichas ventas.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialDeVentasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialDeProforma">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialProformas.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Proformas"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Historial de Proformas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Buscar una proforma generada por Fecha.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialDeProformaActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialTraslado">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/hitorialTraslados.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="HIstorial de Traslados"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Historial de Traslados &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Buscar todos los traslados hechos por Fecha.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialTrasladoActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialOrdenes">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/hitorialOrdenes.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Ordenes de Servicio"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Historial de Ordenes de Servicio&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra todos las ordenes de servicios por rango de Fechas.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialOrdenesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialGarantiaCliente">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialGarantiaCliente.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Garant&#xed;a Cliente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialGarantiaClienteActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosHistorialGarantiaProveedor">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/historialGarantiaProveedor.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Garant&#xed;a Proveedor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosHistorialGarantiaProveedorActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="sepMenuBaseDeDatos">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuBaseDeDatosMantenimiento">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgBaseDeDatosMantenimiento.gif"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Mantenimiento Base de Datos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Mantenimiento Base de Datos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Permite gestionar toda la informacion, &quot;&#xd;&#xa;+ &quot;contenida en la base de datos y hacer &quot;&#xd;&#xa;+ &quot;operacion de mantenimiento.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBaseDeDatosMantenimientoActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuAyuda">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ayuda"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuManualDeUsuario">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgAyudaManual.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manual de Usuario"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Manual de Usuario &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra el uso de cada opcion del sistema.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuManualDeUsuarioActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAcercaDe">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgPantallaAcercaDe.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Acerca De Inventory"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Acerca de Inventory &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra informacion y version del sistema actual.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAcercaDeActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Inventory 3.0"/>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Cursor Por defecto"/>
+    </Property>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection component="Form" name="iconImage" type="property"/>
+    </Property>
+    <Property name="name" type="java.lang.String" value="LaEconomicaInventario" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="menu"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlPrincipal" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblUsuario" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblRol" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblNombre" min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblSucursal" pref="160" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblTerminal" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlPrincipal" pref="649" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
+                  <Component id="lblRol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
+                  <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTerminal" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JDesktopPane" name="pnlPrincipal">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane()"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="btnAccesoProforma">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgAccesoMovimientoProforma.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccesoProformaActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="370" width="80" height="80"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAccesoOrdenDeServicio">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgAccesoMovimientoOrdenDeServicio.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccesoOrdenDeServicioActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="550" width="80" height="80"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAccesoConsultaProductos">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgAccesoConsultaProductos.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccesoConsultaProductosActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="280" width="80" height="80"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAccesoVentaDeProductos">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgAccesoMovimientoVentaDeProductos.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccesoVentaDeProductosActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="460" width="80" height="80"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Container class="javax.swing.JPanel" name="pnlLog">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="100" y="280" width="530" height="350"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" pref="510" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="303" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LOG"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtLog">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="ff" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="btnActualizar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="actionCommand" type="java.lang.String" value="FPV 2"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="60" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnFacturaCliente">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovimientoVentaDeProductos.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturaClienteActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="240" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnFacturasProveedor">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovimientoCompraDeProductos.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturasProveedorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="210" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnReparaciones">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovmientoOrdenDeServicio.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="actionCommand" type="java.lang.String" value="FPV 2"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReparacionesActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="180" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnGarantiaCliente">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovimientoGarantiaCliente.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="actionCommand" type="java.lang.String" value="FPV 2"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGarantiaClienteActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="150" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnGarantiaProveedor">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovimientoGarantiaProveedor.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="actionCommand" type="java.lang.String" value="FPV 2"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGarantiaProveedorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="120" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAnticipos">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/inventory/imagenes/imgMovimientoAnticipos.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="00"/>
+            <Property name="actionCommand" type="java.lang.String" value="FPV 2"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnticiposActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="90" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUsuario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Usuario"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Usuario: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Rol:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRol">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rol"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNombre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSucursal">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="text" type="java.lang.String" value="Sucursal"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Sucursal: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Terminal:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTerminal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Terminal"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="390" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67fae27c-baeb-4bcb-9ac7-0e92949a3c53">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_FACTURA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  * 
+FROM    m_abono AS a,
+        m_factura AS b
+WHERE   a.id_factura = b.id_factura 
+    AND a.id_factura = $P{P_ID_FACTURA}]]>
+	</queryString>
+	<field name="id_abono" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="id_factura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_FACTURA]]></fieldDescription>
+	</field>
+	<field name="fecha_abono" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que se creo el registro de la Factura.]]></fieldDescription>
+	</field>
+	<field name="monto_abono" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cantidad total abonada por Cliente.]]></fieldDescription>
+	</field>
+	<field name="saldo_pendiente" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Saldo pendiente que no se a cobrado.]]></fieldDescription>
+	</field>
+	<field name="dias_transcurridos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Dias transcurridos despues del primer Abono hasta el ultimo.]]></fieldDescription>
+	</field>
+	<field name="comision_sobre_abono" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Comision obtenida por el Vendedor si este tiene comision.]]></fieldDescription>
+	</field>
+	<field name="num_factura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Numero de factura Generada por un correlativo de la esta misma tabla.]]></fieldDescription>
+	</field>
+	<field name="serie_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Serie configurada en los parametros del sistema.]]></fieldDescription>
+	</field>
+	<field name="folio_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Folio configurado en los parametros del sistema.]]></fieldDescription>
+	</field>
+	<field name="id_cliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_CLIENTE]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_factura" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha y hora en la que se almaceno la factura.]]></fieldDescription>
+	</field>
+	<field name="dir_envio_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Direccion donde se enviara el Producto cuando la entrega es a domicilio.]]></fieldDescription>
+	</field>
+	<field name="estado_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Pendiente = Aun no ha pasado por caja.  Credito = Paso por caja pero no se ha cobrado. Credito / Contado = Se cancelo una parte otra quedo al credito. Cancelado = Ya fue cobrada en su totalidad.]]></fieldDescription>
+	</field>
+	<field name="id_empleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_EMPLEADO]]></fieldDescription>
+	</field>
+	<field name="total_Factura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Monto total de la factura sin importar el estado.]]></fieldDescription>
+	</field>
+	<field name="tipo_venta" class="java.lang.String">
+		<fieldDescription><![CDATA[Registra si la Venta es al credito o al contado o con tarjeta.]]></fieldDescription>
+	</field>
+	<field name="dias_de_credito" class="java.lang.String">
+		<fieldDescription><![CDATA[Los dias que se establecieron para el pago de la factura.]]></fieldDescription>
+	</field>
+	<field name="monto_credito" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Monto que quedo pendiente de cancelar. Se crea automaticamente un registro en M_ABONO.]]></fieldDescription>
+	</field>
+	<field name="monto_contado" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Monto que fue cancelado en caja.]]></fieldDescription>
+	</field>
+	<field name="iva_factura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Iva total a pagar de la Factura Generada.]]></fieldDescription>
+	</field>
+	<field name="comision_factura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Comision ganada por el Vendedor en la Factura.]]></fieldDescription>
+	</field>
+	<field name="cajero_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que realizo el cobro de la Factura.]]></fieldDescription>
+	</field>
+	<field name="nombre_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre que lleva el campo Cliente de la Factura.]]></fieldDescription>
+	</field>
+	<field name="pos_factura" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de Ticket generado por el POS cuando se paga con tarjeta.]]></fieldDescription>
+	</field>
+	<field name="fecha_cancelacion_factura" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha cuando se termina de pagar la Factura cuando se vendio al Credito.]]></fieldDescription>
+	</field>
+	<field name="id_terminal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_TERMINAL]]></fieldDescription>
+	</field>
+	<title>
+		<band height="266" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="64" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="38" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="50" width="75" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V.3.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="81" y="0" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[COMPROMISO DE PAGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="50" width="350" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="74" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="26" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="12" width="350" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a3eb0e52-5462-463f-aeef-1c83e9c4672e" x="0" y="95" width="180" height="14"/>
+				<textElement/>
+				<text><![CDATA[Por medio del siguiente documento YO ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c6ee5876-64d8-4175-b489-c67c669ebeb5" x="180" y="95" width="210" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_factura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e8edb589-a2dd-4abb-9ecc-607d0c0b026b" x="390" y="95" width="165" height="14"/>
+				<textElement/>
+				<text><![CDATA[ me comprometo mediante la firma y]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dcf77a40-f327-4078-9c7c-be196a46d503" x="0" y="109" width="265" height="14"/>
+				<textElement/>
+				<text><![CDATA[aceptación de este documento para cancelar la suma de Q.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="883cfea0-c6ea-4f61-a5e7-cc98d715264f" x="265" y="109" width="70" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saldo_pendiente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b28c71f2-cd52-40a3-95a8-26433f39e041" x="335" y="109" width="220" height="14"/>
+				<textElement/>
+				<text><![CDATA[, que corresponde a los artículos adquiridos en la]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3aaa4d4c-522c-4c38-959d-26232ce465d9" x="0" y="123" width="111" height="14"/>
+				<textElement/>
+				<text><![CDATA[Venta con numero de ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e8933053-f83c-4db4-a9e3-016a6d715ba0" x="111" y="123" width="100" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_factura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="85b63c3f-9243-4620-bcb5-9a308f044de0" x="211" y="123" width="5" height="14"/>
+				<textElement/>
+				<text><![CDATA[. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7ca25c19-9c69-4e6d-969a-4381c8e65838" x="0" y="153" width="555" height="14"/>
+				<textElement/>
+				<text><![CDATA[Sujeto a lo anterior descrto firme el siguiente documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="300" y="219" width="12" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="60" y="234" width="182" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado que entrega.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a47381c-dbe0-4759-995c-483d9db4cef6" x="60" y="246" width="182" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="44" y="221" width="12" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="962dd863-7c99-417f-a8ae-c8ec63e85303" x="316" y="230" width="192" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="962dd863-7c99-417f-a8ae-c8ec63e85303" x="60" y="232" width="182" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="316" y="232" width="192" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cd0e0ada-2352-430b-8eb3-a786a338e849" x="216" y="123" width="80" height="14"/>
+				<textElement/>
+				<text><![CDATA[ Realizada el día ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e8933053-f83c-4db4-a9e3-016a6d715ba0" x="296" y="123" width="135" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_emision_factura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="85b63c3f-9243-4620-bcb5-9a308f044de0" x="431" y="123" width="5" height="14"/>
+				<textElement/>
+				<text><![CDATA[. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c6ee5876-64d8-4175-b489-c67c669ebeb5" x="300" y="244" width="220" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_factura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

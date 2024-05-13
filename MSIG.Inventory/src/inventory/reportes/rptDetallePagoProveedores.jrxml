@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="550" pageHeight="842" columnWidth="540" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="7f4dad39-3566-47c5-9df8-8caadbed8bce">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="P_ID_COMPRA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  tipo_abono,  
+        banco_documento,
+        serie_documento,
+        num_documento,
+        monto_abonado,
+        date_format(fecha_abono, '%Y-%m-%d') as fecha_abono
+FROM    d_deuda
+WHERE   id_compra = $P{P_ID_COMPRA}
+ORDER BY fecha_abono]]>
+	</queryString>
+	<field name="tipo_abono" class="java.lang.String">
+		<fieldDescription><![CDATA[Forma de pago, Tarjeta, Cheque o Nota de Crédito.]]></fieldDescription>
+	</field>
+	<field name="banco_documento" class="java.lang.String">
+		<fieldDescription><![CDATA[Banco que emite el documento.]]></fieldDescription>
+	</field>
+	<field name="serie_documento" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la Nota de Crédito]]></fieldDescription>
+	</field>
+	<field name="num_documento" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero del documento.]]></fieldDescription>
+	</field>
+	<field name="monto_abonado" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Total abonado hasta la fecha.]]></fieldDescription>
+	</field>
+	<field name="fecha_abono" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha en la que se creo el registro para abonos.]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="2218452e-d7ad-4f50-90a5-fa3cf4cc3eb1" x="10" y="0" width="530" height="18"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABONOS REALIZADOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="f97cb1ac-ffc6-49d5-ac32-6b528e4d5db4" x="0" y="2" width="540" height="20"/>
+			</rectangle>
+			<frame>
+				<reportElement uuid="8398730b-6f7f-4053-9137-4a561b4a7c02" x="0" y="4" width="530" height="16"/>
+				<staticText>
+					<reportElement uuid="49ba4efb-40b1-4ef2-bc54-4a89e0869396" x="330" y="0" width="100" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="dc169a91-a95a-45bd-b319-0069fb6f23e6" x="100" y="0" width="100" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Banco]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="956d5e6a-10b6-4084-a09a-737135723c28" x="430" y="0" width="90" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Monto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8f2d56f9-9ed3-4210-9d64-1c7be82e4948" x="230" y="0" width="100" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Numero Documento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="7d63ad76-8199-4417-959c-7aa2e4f501bd" x="200" y="0" width="30" height="16"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Serie]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement uuid="65ac0495-33e4-45dd-9637-dcd10490616b" x="10" y="4" width="90" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Abono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement uuid="028d9f48-5344-496a-8dbe-bc95f3ec18da" x="0" y="0" width="530" height="20"/>
+				<textField>
+					<reportElement uuid="61ed26e0-d98e-4373-b189-031b795b0ea9" x="10" y="0" width="90" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tipo_abono}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="8dd6717e-fea5-464f-8df8-dddbefc336ca" x="100" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{banco_documento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="6e69913f-fd04-47f0-8238-ece4b7a56476" x="200" y="0" width="30" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{serie_documento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="75242381-64d1-4ba9-b930-5a9bc5eeb527" x="230" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{num_documento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c67999f4-cdc1-4e00-888a-7ccdc748a2b5" x="330" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{fecha_abono}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="25e6b534-1784-43a5-927c-7191befb836d" x="430" y="0" width="90" height="20"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{monto_abonado}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

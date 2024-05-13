@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="390" columnWidth="565" leftMargin="20" rightMargin="10" topMargin="10" bottomMargin="10" uuid="d16f3783-e985-4217-bea5-51e42a0e687c">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="79"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_CIERRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_HORA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_INICIAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_VENTAS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_TOTAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_ORDEN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_CLIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_SERIE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_FACTURA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DEFECTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_CREACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO_RECIBE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NUMERO_SERIE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MARCA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MODELO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CARACTERISTICAS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIAGNOSTICO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ESTADO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_COSTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CASE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CARGADOR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BATERIA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FUENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_COSTO_EXTRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DISCO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select *
+from m_orden 
+where id_orden = $P{P_ID_ORDEN}]]>
+	</queryString>
+	<field name="id_orden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="id_cliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ID de referencia hacia M_CLIENTE si no existe se queda con valor cero.]]></fieldDescription>
+	</field>
+	<field name="nombre_cliente_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre de la persona que llevo el equipo a revision o reparacion.]]></fieldDescription>
+	</field>
+	<field name="telefono_cliente_orden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Telefono de la persona que recibira el presupuesto.]]></fieldDescription>
+	</field>
+	<field name="fecha_creacion_orden" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que se creo la Orden de Servicio]]></fieldDescription>
+	</field>
+	<field name="usuario_creacion_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que creo la Orden de Servicio.]]></fieldDescription>
+	</field>
+	<field name="id_serie" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Referencia a la M_SERIE en caso el producto fue vendido por esta empresa.]]></fieldDescription>
+	</field>
+	<field name="serie_producto_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Serie del producto recibido]]></fieldDescription>
+	</field>
+	<field name="marca_producto_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Marca del Producto recibido.]]></fieldDescription>
+	</field>
+	<field name="modelo_producto_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Modelo del producto recibido.]]></fieldDescription>
+	</field>
+	<field name="caracteristicas_producto_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripcion del equipo en caso no fue vendido por esta empresa.]]></fieldDescription>
+	</field>
+	<field name="defecto_reportado_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Lo que el cliente reporta que esta fallando.]]></fieldDescription>
+	</field>
+	<field name="observaciones_cliente_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Otras observaciones que el cliente indique.]]></fieldDescription>
+	</field>
+	<field name="diagnostico_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Lo que el tecnico encontro despues de la revision.]]></fieldDescription>
+	</field>
+	<field name="aplica_garantia_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Este campo se marca automatico si la serie esta registrada y esta tiene garantia.]]></fieldDescription>
+	</field>
+	<field name="serie_entregada_garantia_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Es el numero de serie que se entrega al momento de cambiar un producto.]]></fieldDescription>
+	</field>
+	<field name="cliente_acepta_presupuesto_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Indica si el cliente acepta el costo de reparacion.]]></fieldDescription>
+	</field>
+	<field name="fecha_acepta_presupuesto_orden" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que el Cliente acepto el presupuesto.]]></fieldDescription>
+	</field>
+	<field name="valor_presupuesto_orden" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Presupuesto generado por el Tecnico o Empleado.]]></fieldDescription>
+	</field>
+	<field name="abono_presupuesto_orden" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Abono o adelanto para la revisión de la máquina o reparción de la misma.]]></fieldDescription>
+	</field>
+	<field name="tecnico_encargado_reparacion_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del usuario que esta encargado de reparar el equipo.]]></fieldDescription>
+	</field>
+	<field name="fecha_programada_entrega_orden" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha que el tecnico ofrece para entregar el equipo.]]></fieldDescription>
+	</field>
+	<field name="fecha_notifica_cliente_orden" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en que se le notifica al cliente que su Equipo ya fue reparado.]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega_orden" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que se entrego el Equipo ya reparado.]]></fieldDescription>
+	</field>
+	<field name="id_factura_emitida" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ID de referencia en caso se emite Factura por esta Orden de Servicio.]]></fieldDescription>
+	</field>
+	<field name="estado_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Estado actual en el que se encuentra la Orden de Servicio]]></fieldDescription>
+	</field>
+	<field name="case_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numeo de serie de la carcaza del equipo.]]></fieldDescription>
+	</field>
+	<field name="cargador_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Serie del cargador de las laptops.]]></fieldDescription>
+	</field>
+	<field name="bateria_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la bateria de la Laptop.]]></fieldDescription>
+	</field>
+	<field name="ram1_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la memoria RAM.]]></fieldDescription>
+	</field>
+	<field name="ram2_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la memoria RAM.]]></fieldDescription>
+	</field>
+	<field name="ram3_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la memoria RAM.]]></fieldDescription>
+	</field>
+	<field name="ram4_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la memoria RAM.]]></fieldDescription>
+	</field>
+	<field name="fuente_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de serie de la fuente de poder.]]></fieldDescription>
+	</field>
+	<field name="otros_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Alguno otro numero de serie.]]></fieldDescription>
+	</field>
+	<field name="total_orden" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Total del valor de la orden al estar terminada.]]></fieldDescription>
+	</field>
+	<field name="tarjeta_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Tarjeta madre que tenga el equipo de computo recibido.]]></fieldDescription>
+	</field>
+	<field name="disco_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de Serie del discon duro del equipo recibido.]]></fieldDescription>
+	</field>
+	<variable name="V_TOTAL" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{total_orden}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="V_ABONO" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{abono_presupuesto_orden}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="V_SALDO" class="java.lang.Float">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="355" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="96153362-d8df-49f1-a72f-bc05ab0033dc" style="SubTitle" x="0" y="36" width="61" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V.3.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="91" y="0" width="331" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ORDEN DE SERVICIO]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="451" y="0" width="114" height="48"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement uuid="1b18b6a5-f51b-4d48-9b5c-9ee24594c908" stretchType="RelativeToBandHeight" x="0" y="0" width="61" height="36"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/reportes/logotipo.jpg")]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="91" y="24" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="91" y="12" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="cafe1cae-87c4-4d97-b92c-dbd5160b40a2" x="0" y="143" width="565" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="cafe1cae-87c4-4d97-b92c-dbd5160b40a2" x="0" y="52" width="565" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="56" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Orden:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="68" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="1" y="80" width="60" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Serie:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="68" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="80" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="56" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="56" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ID_ORDEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="68" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="80" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="56" width="202" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_cliente_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="68" width="82" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono_cliente_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="80" width="82" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_creacion_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="92" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Factura:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="92" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_factura_emitida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="92" width="51" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Encargado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="175" y="92" width="72" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tecnico_encargado_reparacion_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="68" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Serie:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="80" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Marca:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="92" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="68" width="80" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serie_producto_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="80" width="80" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marca_producto_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="92" width="80" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo_producto_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="116" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Defecto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="116" width="382" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{defecto_reportado_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="160" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[El valor del diagnostico es de               , si sé envia fuera el valor es de             Para recibir su equipo usted debera dejar un anticipo de Q.25.00.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="181" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Por cada día pasado por el plazo establecido, se estará cobrando Q.5.00 por día de almacenamiento en bodega.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="202" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[El equipo y el trabajo descrito anteriormente es lo único por el que nos hacemos responsables.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="223" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- 15 días despues de la finalización de los trabajos en el equipo de no ser recogido no nos hacemos responsables por daños, perdida o deterioro.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="244" width="276" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- El diagnóstico básico frente al cliente no tiene ningún costo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="255" width="276" height="31"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Para proteger su equipo. No se entregará de no presentarse la presente contraseña. De perderla solo puede recogerla el propietario y deberá presentar su documento de identificación.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="128" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Diagnostico:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="128" width="382" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnostico_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="104" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Caracteristicas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="104" width="382" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caracteristicas_producto_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="148" width="276" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Condiciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="286" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- No nos hacemos responsable por cualquier software sin licencia instaldo en el equipo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="148" width="275" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Excepción de responsabilidades:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="160" width="275" height="21"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 1: El cliente corre el riesgo de pérdida total o parcial de archivo en los siguientes casos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="181" width="275" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Sobre archivos almacenados en la computadora cuando esta no entra a sistema o no encienda.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="202" width="275" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Sobre el disco duro y sus archivos. Si el equipo lo botaron a recibió un golpe.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="223" width="275" height="46"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 2: Mal funcionamiento o faltantes de partes de la computadora que no se pueden probar o verificar. Cuando la maquina no enciende o ya fue desarmada. (Teclado, bateria, cargador, pantalla etc.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="269" width="275" height="21"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 3: El cliente corre el riesgo que el equipo por reparar ya no encienda o no emita señal de video total o parcial en los siguientes casos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="290" width="275" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Cualquier reparación electrónica a la tarjeta madre del equipo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="301" width="275" height="31"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Computadoras que tengan síntomas de problemas de video en la tarjeta madre: Si calienta y se apaga. Si calienta fuera de lo normal, no da señal de video correctamente. Si el wifi no funciona.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="370" y="68" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="370" y="80" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Abono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="370" y="92" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Saldo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="405" y="68" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="405" y="80" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{abono_presupuesto_orden}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="405" y="92" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="43" y="322" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Acepto la condiciones del servicio descritas en este documento.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ecb079ce-5af6-48fb-96f6-5baf0e25c1e5" x="43" y="319" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="370" y="56" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="405" y="56" width="40" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="108" y="160" width="40" height="11" forecolor="#FF0000"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_COSTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="56" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Case:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="56" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{case_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="68" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cargador:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="80" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Batería:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="92" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fuente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="68" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargador_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="80" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bateria_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="92" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuente_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="104" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ram:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="104" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ram1_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="116" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ram2_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="495" y="128" width="70" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{disco_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="176" y="322" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Estoy conforme con el trabajo realizado.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ecb079ce-5af6-48fb-96f6-5baf0e25c1e5" x="176" y="319" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="33" y="307" width="10" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="165" y="307" width="10" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="254" y="160" width="35" height="11" forecolor="#FF0000"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_COSTO_EXTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="304224b2-9390-48f6-8f34-a1b3f0decaaa" x="290" y="332" width="60" height="12" forecolor="#FF3333"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTANTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="041ff3fd-6d89-4226-819d-379e8e696a2e" x="290" y="332" width="275" height="21" forecolor="#FF3333"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                               Por favor exija su factura al terminar el trabajo realizado a su equipo.]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="91" y="36" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="451" y="128" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Disco:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

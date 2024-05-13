@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="390" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a6cf3643-4426-497d-908a-95beeb2c5e65">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="39"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_NOMBRE_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_GARANTIA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * 
+FROM   m_garantia_proveedor AS a,
+       m_compra AS b,
+       m_proveedor AS c,
+       m_persona AS d
+WHERE  a.id_compra = b.id_compra 
+   AND b.id_proveedor = c.id_proveedor
+   AND c.id_persona = d.id_persona
+   AND a.id_garantia_proveedor = $P{P_ID_GARANTIA}]]>
+	</queryString>
+	<field name="id_garantia_proveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="id_proveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Rerencia - M_PROVEEDOR]]></fieldDescription>
+	</field>
+	<field name="serie_factura_compra" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_factura_compra" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marca_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="detalle_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="serie_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nit_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_guia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_envio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_notificacion_prov" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_orden" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_revision" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dias_espera" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Dias que el Proveedor se tardará en entregar el Producto.]]></fieldDescription>
+	</field>
+	<field name="solucion" class="java.lang.String">
+		<fieldDescription><![CDATA[Solucicón propuesta por el Proveedor.]]></fieldDescription>
+	</field>
+	<field name="comentario" class="java.lang.String">
+		<fieldDescription><![CDATA[Comentario realizado por el usaurio.]]></fieldDescription>
+	</field>
+	<field name="id_compra" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Referencia - M_COMPRA]]></fieldDescription>
+	</field>
+	<field name="usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que guardo el registro.]]></fieldDescription>
+	</field>
+	<field name="terminal" class="java.lang.String">
+		<fieldDescription><![CDATA[Terminal que guardo el registro.]]></fieldDescription>
+	</field>
+	<field name="fecha_fin_garantia" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha Limite de Garantia segun Catalago de Series.]]></fieldDescription>
+	</field>
+	<field name="id_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Referencia - M_PRODUCTO]]></fieldDescription>
+	</field>
+	<field name="fecha_solicitud" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha en la que se guardo el registro.]]></fieldDescription>
+	</field>
+	<field name="fecha_compra_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha de compra segun Factrura del Proveedor.]]></fieldDescription>
+	</field>
+	<field name="nueva_serie_cambio_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Nueva serie entregada en caso de cambio.]]></fieldDescription>
+	</field>
+	<field name="tipo_garantia" class="java.lang.String">
+		<fieldDescription><![CDATA[Sirve para validar el tipo de Garantía que se utilizara.]]></fieldDescription>
+	</field>
+	<field name="telefono_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de telefono para notificar al cliente.]]></fieldDescription>
+	</field>
+	<field name="nombre_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del cliente para notificar la solucion del Proveedor]]></fieldDescription>
+	</field>
+	<field name="fecha_factura_compra" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha de la Factura de Compra]]></fieldDescription>
+	</field>
+	<field name="folio_factura_compra" class="java.lang.String">
+		<fieldDescription><![CDATA[Folio o Libro del numero de Factura de Compra.]]></fieldDescription>
+	</field>
+	<field name="total_factura_compra" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Monto total de la Factura.]]></fieldDescription>
+	</field>
+	<field name="id_persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_PERSONA]]></fieldDescription>
+	</field>
+	<field name="dir_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[Direccion del Proveedor segun RTU.]]></fieldDescription>
+	</field>
+	<field name="tel_proveedor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Telefono de las oficinas del Proveedor.]]></fieldDescription>
+	</field>
+	<field name="numero_cuenta_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de cuenta y banco para realizar depositos al Proveedor.]]></fieldDescription>
+	</field>
+	<field name="nit_persona" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de NIT de la persona. Este dato no se puede repetir.]]></fieldDescription>
+	</field>
+	<field name="nom_persona" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre completo de la persona. Sirve para registro interno de la Sucursal.]]></fieldDescription>
+	</field>
+	<title>
+		<band height="337" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="81" y="0" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[GARANTÍA DIRECTA CON PROVEEDOR]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="12" width="350" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="64" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="54" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory 3.0]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="38" width="350" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="26" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="86" width="416" height="12"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL PRODUCTO]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="0fd6b7e1-0d14-4e53-bbb9-4a553dd08d7e" x="0" y="101" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f4aefea5-8848-48b4-8219-9dc3a14c7a55" style="Column header" x="423" y="86" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ID Garantía:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7846c1f3-b9ac-4824-91f0-18ef0086ae97" style="Detail" x="486" y="86" width="69" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_garantia_proveedor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="557c4086-66f2-4631-9743-7eaa0457b439" style="Column header" x="0" y="105" width="65" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Descripcion:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5668ce6e-9705-43ad-89eb-40d66ae25b00" style="Detail" x="65" y="105" width="490" height="22"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="00ae5ddc-0f25-44c4-b7fe-44809e811010" style="Column header" x="0" y="127" width="65" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Marca:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0f633b99-626a-4dfc-abce-b4670941bca3" style="Detail" x="65" y="127" width="221" height="10"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marca_producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb87779f-278c-4cca-8ad0-b40ffab350a8" style="Column header" x="293" y="127" width="58" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Producto:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0eb44b0c-1ab3-4b75-89c9-c8bd63d6e8d3" style="Detail" x="351" y="127" width="65" height="10"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f7875e3c-693b-4a45-9b46-2ff992541707" style="Column header" x="0" y="137" width="65" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Compra:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f9169ec5-57bb-49e9-83fc-cb17f6664bb1" style="Detail" x="65" y="137" width="221" height="10"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_compra_producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d00cf22f-3e1a-48f8-89b0-44cdbac71628" style="Column header" x="293" y="137" width="58" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="178cd124-843d-472c-963e-214f9e43399a" style="Detail" x="351" y="137" width="65" height="10"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4a46c41b-8455-4d96-817f-c98352e09ad9" style="Column header" x="423" y="127" width="45" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[No. Serie:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c35267e2-ff07-42e0-86ce-9f3dade0cbd6" style="Detail" x="468" y="127" width="87" height="10"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serie_producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b1cd71e8-dac7-48cd-9ee1-fc6bacf5d757" style="Column header" x="0" y="147" width="65" height="10" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Comentario:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1836fedf-ca12-428f-806f-fd3cace8b472" style="Detail" x="65" y="147" width="490" height="22"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comentario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="789bca19-5832-4ad0-80ec-a54a880543ab" x="0" y="178" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="05ae9400-e6eb-4840-9a4e-f9b8da705ba6" x="0" y="183" width="555" height="72"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Por este medio hacemos constar el envió del producto descrito en la parte superior de este documento para el reclamo de garantía con el Proveedor. Nos reservamos el derechos de la resolución dada por el proveedor despues de la verificación del producto. Este proceso tiene un tiempo mínimo de espera de 15 días hábiles. Al momento de conocer el diagnostico y la solución propuesta al problema por parte del proveedor nosotros le notificarémos. Acepto los terminos descritos en este documento por lo cual firmo conforme:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ac22140e-df56-4cf8-ad69-a3cdb632c30e" x="319" y="301" width="182" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="de04b78c-e86b-4d08-8b6b-b560bf88dcaa" x="309" y="290" width="10" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d022ef1b-2605-44f6-a493-615530d9e57d" style="Detail" x="319" y="304" width="182" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_cliente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d022ef1b-2605-44f6-a493-615530d9e57d" style="Detail" x="319" y="317" width="182" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="63" y="289" width="12" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a47381c-dbe0-4759-995c-483d9db4cef6" x="75" y="317" width="182" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="962dd863-7c99-417f-a8ae-c8ec63e85303" x="75" y="301" width="182" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="05ac6214-e3b8-4c42-941b-602c868d110e" x="75" y="304" width="182" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado que entrega.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="64" width="342" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

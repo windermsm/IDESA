@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8d75523-93e0-485d-8e7a-65cdd895eeb6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_INICIAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_FINAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  e.nom_persona as proveedor,
+        concat( "ID Compra: ", 
+                c.id_compra,
+                "  Fecha: ",
+                date_format(c.fecha_factura_compra, '%d-%m-%Y'),
+                "  Saldo: ",
+                a.saldo_actual) as compra,
+        b.id as id_abono,
+        b.fecha_abono as fecha_abono,
+        b.tipo_abono as tipo,
+        b.banco_documento as banco,
+        b.serie_documento as serie,
+        b.num_documento as numero,
+        b.monto_abonado as monto,
+        b.saldo_pendiente as saldo_abono
+from    m_deuda as a,
+        d_deuda as b,
+        m_compra as c,
+        m_proveedor as d,
+        m_persona as e
+where   a.id_compra = b.id_compra
+    and a.id_compra = c.id_compra
+    and b.id_compra = c.id_compra
+    and c.id_proveedor = d.id_proveedor
+    and d.id_persona = e.id_persona
+    and e.nit_persona = IFNULL(CONCAT($P{P_NIT}), e.nit_persona)
+    and str_to_date(date_format(c.fecha_factura_compra, '%Y-%m-%d'), '%Y-%m-%d') between  str_to_date($P{P_FECHA_INICIAL},'%Y-%m-%d') and str_to_date($P{P_FECHA_FINAL}, '%Y-%m-%d')
+order by saldo_abono desc]]>
+	</queryString>
+	<field name="proveedor" class="java.lang.String"/>
+	<field name="compra" class="java.lang.String"/>
+	<field name="id_abono" class="java.lang.Integer"/>
+	<field name="fecha_abono" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha en la que se creo el registro para abonos.]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="banco" class="java.lang.String"/>
+	<field name="serie" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="monto" class="java.math.BigDecimal"/>
+	<field name="saldo_abono" class="java.math.BigDecimal"/>
+	<group name="proveedor">
+		<groupExpression><![CDATA[$F{proveedor}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement uuid="e405ebc0-6492-432f-a921-e75b6d1fdf24" mode="Opaque" x="0" y="7" width="555" height="14" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+					<textField>
+						<reportElement uuid="84995e27-0604-4ed8-9705-490439e5d177" style="SubTitle" x="0" y="0" width="555" height="14" forecolor="#736343"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{proveedor}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<line>
+					<reportElement uuid="7a699636-f3ff-45fb-9840-4d5bcfcce137" x="0" y="24" width="555" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="compra">
+		<groupExpression><![CDATA[$F{compra}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField>
+					<reportElement uuid="da820a5a-6b6d-481b-8ba5-ea4ed525c168" style="SubTitle" x="0" y="3" width="555" height="12"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compra}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="3c922503-62f7-4dae-bdfb-382a08114636" x="0" y="18" width="555" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="92" y="0" width="330" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE ABONOS A PROVEEDORE]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="432" y="0" width="123" height="64"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="92" y="22" width="330" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement uuid="1b18b6a5-f51b-4d48-9b5c-9ee24594c908" stretchType="RelativeToBandHeight" x="0" y="0" width="82" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/reportes/logotipo.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="96153362-d8df-49f1-a72f-bc05ab0033dc" style="SubTitle" x="0" y="50" width="82" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V.3.0]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="92" y="76" width="330" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="36" width="330" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="64" width="330" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="64" width="82" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1fa11dd4-6e36-4d05-8bf6-201efa3de673" style="Column header" x="0" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ID Abono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e12e9998-e93a-45ad-941b-3eebd6dd1f54" style="Column header" x="69" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5e938136-2466-499c-a0ff-f7a7c01fdd6f" style="Column header" x="138" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="12a68068-c939-4ecb-9816-340b7aef6303" style="Column header" x="207" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Banco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5455962e-72c8-400b-af8e-1e903747ccb5" style="Column header" x="276" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0685361a-fd39-4d77-859e-26a23b4ef20b" style="Column header" x="345" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fb68840c-d3a1-49e8-ad06-c4f6e3cd4ec4" style="Column header" x="414" y="7" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="02ff3e83-b6d7-414e-a889-4b0de020c4ac" style="Column header" x="483" y="7" width="72" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="3b1c4fba-e6c5-43ba-9762-a8759660a020" x="0" y="24" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="d5e2bc1e-3241-49db-884d-e4c8e96e0b08" x="0" y="3" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="5666b163-1c2b-4c3e-8ebd-f5f848a030c9" mode="Opaque" x="0" y="0" width="555" height="12"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="fdb8e1fb-9509-47af-b44b-2b8ff46e3d25" style="Detail" x="0" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_abono}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="b538c0ea-97fa-4fd3-9319-d198f9bc1b84" style="Detail" x="69" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha_abono}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="b808573d-1a25-4f30-8526-1a16a61940d5" style="Detail" x="138" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="3936d062-49a0-4ac5-a46e-8996e36efc40" style="Detail" x="207" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{banco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="0e2a4ad4-da3f-40a3-b9c9-7ea69b97d596" style="Detail" x="276" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="84b4b3ac-4752-4d59-a8fa-588639b0178c" style="Detail" x="345" y="0" width="69" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7cc62574-b1fb-4694-bdad-77019d8530df" style="Detail" x="414" y="0" width="69" height="12"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="dc6d4b87-fbc6-48e1-a67d-e2d04bd58af8" style="Detail" x="483" y="0" width="72" height="12"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{saldo_abono}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

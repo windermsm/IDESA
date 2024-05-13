@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b5f33bb-40de-47a0-a3db-924f2c3506a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="378"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_ANTICIPO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *, 
+      DATE_FORMAT(fecha_entrega_producto_anticipo, '%d-%m-%Y') fecha_entrega,
+      DATE_FORMAT(fecha_entrega_persona_aticipo, '%d-%m-%Y') fecha_anticipo
+FROM m_anticipo 
+WHERE id_anticipo = $P{P_ID_ANTICIPO}]]>
+	</queryString>
+	<field name="id_anticipo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="nombre_persona_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre de la Persona que paga el aticipo.]]></fieldDescription>
+	</field>
+	<field name="telefono_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Numeros de teléfono para comunicarse con la persona]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega_persona_aticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que él Cliente entrega el aticipo.]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega_producto_anticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha propuesta por el Empleado para la entrega del Producto solicitado.]]></fieldDescription>
+	</field>
+	<field name="fecha_uso_anticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que le agregaron factura o lo devolvieron]]></fieldDescription>
+	</field>
+	<field name="detalle_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Aquí ingresa el motivo o la descripción de los artículos que el Cliente solicita.]]></fieldDescription>
+	</field>
+	<field name="total_anticipo" class="java.lang.Double">
+		<fieldDescription><![CDATA[Cantidad total entregada por el cliente como anticipo.]]></fieldDescription>
+	</field>
+	<field name="comentarios_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Anotaciones del empleado para este anticipo.]]></fieldDescription>
+	</field>
+	<field name="estado_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Estado del anticipo.]]></fieldDescription>
+	</field>
+	<field name="usuario_registro_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que grabo el registro.]]></fieldDescription>
+	</field>
+	<field name="usuario_modifico_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que modifico el registro.]]></fieldDescription>
+	</field>
+	<field name="id_factura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Referencia - M_FACTURA]]></fieldDescription>
+	</field>
+	<field name="saldo_anticipo" class="java.lang.Double">
+		<fieldDescription><![CDATA[Saldo pendiente de pago para cancelar el Producto.]]></fieldDescription>
+	</field>
+	<field name="nit_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de NIT como referencía del Cliente.]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega" class="java.lang.String"/>
+	<field name="fecha_anticipo" class="java.lang.String"/>
+	<title>
+		<band height="800" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="64" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="54" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory 3.0]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="62" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="26" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="81" y="0" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ANTICIPO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="12" width="350" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="38" width="350" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="52249fab-1109-43c0-a21d-31237737f09d" style="Column header" x="0" y="99" width="52" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Anticipo:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="306d562e-a5ec-4e82-977a-5146a1850eec" style="Detail" x="52" y="99" width="56" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="65437c2c-0605-4973-96ca-577a3fafe9ef" style="Column header" x="0" y="111" width="52" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2adbb8b7-adf2-4268-b77f-1263edce4650" style="Detail" x="52" y="111" width="503" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_persona_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="69e2cf05-07e8-44b3-92f9-583f7a1476b7" style="Column header" x="116" y="99" width="42" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ff5d9db2-6847-4870-9ac1-a5978d3b172f" style="Detail" x="158" y="99" width="192" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="356" y="87" width="95" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Entrega Anticipo:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="451" y="87" width="104" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="08cd4c2c-f9cf-4e28-a99d-94e11ee9dce9" style="Column header" x="0" y="131" width="555" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Detalle:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d916d90f-f705-414e-a762-bdeb3e2a2c34" style="Detail" x="0" y="143" width="555" height="580"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="527fae08-6002-4001-ba09-22db9dc50438" style="Column header" x="444" y="727" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Anticipo:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b4efac9d-6ecf-4448-9161-fee8eb20bfd9" style="Detail" x="489" y="727" width="66" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f3f5124d-2cc1-45d2-99a8-4f60305f3566" style="Column header" x="0" y="727" width="52" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Comentario:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="eadac860-98f7-4b8f-a261-510d3a778dd8" style="Detail" x="52" y="727" width="384" height="36"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comentarios_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="628106e9-858b-450b-9887-8bd0c3560752" style="Column header" x="436" y="99" width="33" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1d438940-5a10-464a-bad8-dba665b2448a" style="Detail" x="469" y="99" width="86" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado_anticipo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="c651e086-496d-447e-9f24-6b77021b8ba6" x="0" y="125" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="3e9ffff6-cfb1-4bf1-8962-32c888f92347" x="0" y="776" width="555" height="24"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTA IMPORTANTE: IDESA NO SE HACE RESPONSABLE DE NINGUNA PIEZA QUE HAYA SOLICITADO SIN  PREVIO DIAGNOSTICO. TAMPOCO DEVOLUCIONES DE EFECTIVO SI CANCELA SU PEDIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="527fae08-6002-4001-ba09-22db9dc50438" style="Column header" x="444" y="739" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Saldo:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b4efac9d-6ecf-4448-9161-fee8eb20bfd9" style="Detail" x="489" y="739" width="66" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saldo_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="527fae08-6002-4001-ba09-22db9dc50438" style="Column header" x="444" y="751" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b4efac9d-6ecf-4448-9161-fee8eb20bfd9" style="Detail" x="489" y="751" width="66" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_anticipo} + $F{saldo_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="527fae08-6002-4001-ba09-22db9dc50438" style="Column header" x="356" y="99" width="20" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NIT:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1d438940-5a10-464a-bad8-dba665b2448a" style="Detail" x="376" y="99" width="55" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nit_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="116" y="87" width="101" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Entrega Producto:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="217" y="87" width="133" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_entrega}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

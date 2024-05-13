@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d7cfa60-7764-4c2c-a9ac-41ae560ab393">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SERIE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  TRAZABILIDAD.*
+FROM    (
+
+SELECT  'Compra' AS proceso,
+        a.id_compra AS id,
+        b.estado AS estado,
+        b.fechacreacion AS fecha,
+        b.usuarioregistra AS usuario
+FROM    d_compra AS a, 
+        m_serie AS b 
+WHERE   a.id_compra = b.id_compra
+    AND a.id_producto = b.id_producto
+    AND b.numero_serie = $P{P_SERIE}
+    
+UNION ALL
+
+SELECT  'Venta' AS proceso,
+        a.id_factura AS id,
+        b.estado AS estado,
+        a.fecha_emision_factura AS fecha,
+        d.nombre_usuario AS usuario
+FROM    m_factura AS a,
+        m_serie AS b,
+        m_empleado AS c,
+        m_usuario AS d
+WHERE   a.id_factura = b.id_factura
+    AND a.id_empleado = c.id_empleado
+    AND c.id_empleado = d.id_empleado
+    AND b.numero_serie = $P{P_SERIE}
+
+UNION ALL
+    
+SELECT  'Venta' AS proceso,
+        a.id_factura AS id,
+        b.estado AS estado,
+        a.fecha_emision_factura AS fecha,
+        d.nombre_usuario AS usuario
+FROM    m_factura AS a,
+        m_serie AS b,
+        m_empleado AS c,
+        m_usuario AS d
+WHERE   a.id_factura = b.id_factura
+    AND a.id_empleado = c.id_empleado
+    AND c.id_empleado = d.id_empleado
+    AND a.id_factura IN ( SELECT  a.id_venta_anterior_intercambio
+                          FROM    m_intercambio AS a
+                          WHERE   a.serie_anterior_intercambio = $P{P_SERIE}
+                        )
+
+UNION ALL
+
+SELECT  'Orden de Servicio' AS proceso,
+        a.id_orden AS id,
+        a.estado_orden AS estado,
+        a.fecha_creacion_orden AS fecha,
+        a.usuario_creacion_orden AS usuario
+FROM    m_orden AS a
+WHERE   a.serie_producto_orden = $P{P_SERIE}
+
+UNION ALL
+
+SELECT  'Garantia Cliente' AS proceso,
+        a.id_reclamo AS id,
+        a.solucion AS estado,
+        a.fecha_reclamo AS fecha,
+        a.usuario AS usuario
+FROM    m_reclamo_garantias AS a
+WHERE   a.serie_producto = $P{P_SERIE} 
+
+UNION ALL
+
+SELECT  'Garantia Cliente' AS proceso,
+        a.id_reclamo AS id,
+        a.solucion AS estado,
+        a.fecha_reclamo AS fecha,
+        a.usuario AS usuario
+FROM    m_reclamo_garantias AS a
+WHERE   a.serie_producto_entregado = $P{P_SERIE}
+
+UNION ALL
+
+SELECT  'Garantia Proveedor' AS proceso,
+        a.id_garantia_proveedor AS id,
+        a.solucion AS estado,
+        IFNULL(DATE_FORMAT(a.fecha_solicitud, '%Y-%m-%d'), '') AS fecha,
+        'admin' AS usuario
+FROM    m_garantia_proveedor AS a
+WHERE   a.serie_producto = $P{P_SERIE}
+
+UNION ALL
+
+SELECT  'Garantia Proveedor' AS proceso,
+        a.id_garantia_proveedor AS id,
+        a.solucion AS estado,
+        IFNULL(DATE_FORMAT(a.fecha_solicitud, '%Y-%m-%d'), '') AS fecha,
+        'admin' AS usuario
+FROM    m_garantia_proveedor AS a
+WHERE   a.nueva_serie_cambio_producto = $P{P_SERIE}
+
+UNION ALL
+
+SELECT  'Cambio de Serie' AS proceso,
+        a.id_intercambio AS id,
+        a.motivo_intercambio AS estado,
+        IFNULL(DATE_FORMAT(a.fecha_intercambio, '%Y-%m-%d'), '') AS fecha,
+        'admin' AS usuario_intercambio
+FROM    m_intercambio AS a
+WHERE   a.serie_posterior_intercambio = $P{P_SERIE}
+
+UNION ALL
+
+SELECT  'Cambio de Serie' AS proceso,
+        a.id_intercambio AS id,
+        a.motivo_intercambio AS estado,
+        IFNULL(DATE_FORMAT(a.fecha_intercambio, '%Y-%m-%d'), '') AS fecha,
+        'admin' AS usuario_intercambio
+FROM    m_intercambio AS a
+WHERE   a.serie_anterior_intercambio = $P{P_SERIE}
+
+) AS TRAZABILIDAD]]>
+	</queryString>
+	<field name="proceso" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[Estado de la serie segun es comprado o vendido.]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha de la apertura de Caja.]]></fieldDescription>
+	</field>
+	<field name="usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que aperturo la Caja.]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="435" y="0" width="120" height="64"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement uuid="1b18b6a5-f51b-4d48-9b5c-9ee24594c908" stretchType="RelativeToBandHeight" x="0" y="0" width="82" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/reportes/logotipo.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="92" y="0" width="335" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TRAZABILIDAD SERIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="96153362-d8df-49f1-a72f-bc05ab0033dc" style="SubTitle" x="0" y="50" width="82" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V. 3.0]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="22" width="335" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="72" width="335" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="48" width="335" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="36" width="335" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="92" y="96" width="335" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="92" y="84" width="335" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_INFORMACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="96153362-d8df-49f1-a72f-bc05ab0033dc" style="SubTitle" x="0" y="64" width="82" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="bea0c816-d8d9-4059-b4eb-da24869ce141" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="f0765e76-d1ec-4c5a-8de6-2b7cc171fb96" style="Column header" x="0" y="0" width="82" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Proceso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e8c2025b-043d-4555-918a-03f702b6eeba" style="Column header" x="92" y="0" width="40" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f106c0e-fd67-4202-90b5-18732ea80ff2" style="Column header" x="143" y="0" width="250" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f106c0e-fd67-4202-90b5-18732ea80ff2" style="Column header" x="485" y="0" width="70" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f106c0e-fd67-4202-90b5-18732ea80ff2" style="Column header" x="400" y="0" width="80" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement uuid="27c3c1b8-1fd2-4e4e-9916-647ab4676662" mode="Opaque" x="0" y="0" width="555" height="12"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="efc8f421-221d-449f-bff9-872a00d820c9" style="Detail" x="0" y="0" width="82" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{proceso}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f9a8ffa5-266e-4dd9-8da3-3a58e54b1c54" style="Detail" x="92" y="0" width="40" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="25524e8d-fc81-40a5-ba28-f0368b6bf749" style="Detail" x="143" y="0" width="250" height="12"/>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f9a8ffa5-266e-4dd9-8da3-3a58e54b1c54" style="Detail" x="400" y="0" width="80" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f9a8ffa5-266e-4dd9-8da3-3a58e54b1c54" style="Detail" x="485" y="0" width="70" height="12"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch">
+			<line>
+				<reportElement uuid="175c1a32-3b8e-417a-b7e9-9b78774b7b48" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="5d28fa20-03a1-436d-a636-158396481a02" mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="088f184c-beeb-43ff-b517-4bf3922e258c" style="Column header" x="533" y="0" width="43" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c75ff4f8-63a4-4b9d-b4e6-63689c7cc6c2" style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="bd102aef-d771-483b-8f6a-2edc85cfb79f" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

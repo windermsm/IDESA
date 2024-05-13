@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be9018ae-73cf-4c9a-ad3f-a490881c2a5b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_FECHA_INICIAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_FINAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_PRODUCTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_PROVEEDOR" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  concat(x.codigo, ' - ', x.descripcion) producto,
+        x.tipo,
+        x.id_documento,
+        date_format(x.fecha, '%Y-%m-%d') fecha,
+        x.usuario,
+        x.cantidad
+from    (
+-- consulta movimientos de compra
+select 	'Compra' tipo,
+        c.id_producto codigo,
+        c.desc_producto descripcion,
+        c.id_proveedor proveedor,
+        c.marca_producto marca,
+        a.id_compra id_documento,
+        a.fecha_factura_compra fecha,
+        b.cant_d_compra cantidad,
+        '' usuario
+from    m_compra as a,
+        d_compra as b,
+        m_producto as c
+where   b.id_compra = a.id_compra
+    and b.id_producto = c.id_producto
+    and c.id_proveedor = ifnull($P{P_ID_PROVEEDOR}, c.id_proveedor) 
+    and date_format(a.fecha_factura_compra, '%Y-%m-%d') between ifnull($P{P_FECHA_INICIAL}, curdate()) and  ifnull($P{P_FECHA_FINAL}, curdate())
+
+UNION ALL
+
+-- consulta movimientos de venta
+select 	'Venta' tipo,
+	      c.id_producto codigo,
+        c.desc_producto descripcion,
+        c.id_proveedor proveedor,
+        c.marca_producto marca,
+        a.id_factura id_documento,
+        a.fecha_emision_factura fecha,
+        b.cant_d_factura cantidad,
+        '' usuario
+from    m_factura as a,
+        d_factura as b,
+        m_producto as c
+where   b.id_factura = a.id_factura
+    and b.id_producto = c.id_producto
+    and a.estado_factura = 'Cancelado'
+    and c.id_proveedor = ifnull($P{P_ID_PROVEEDOR}, c.id_proveedor)
+    and date_format(a.fecha_emision_factura, '%Y-%m-%d') between ifnull($P{P_FECHA_INICIAL}, curdate()) and  ifnull($P{P_FECHA_FINAL}, curdate())
+
+UNION ALL
+
+-- consulta movimientos de traslado
+select 	'Traslado' tipo,
+	      c.id_producto codigo,
+        c.desc_producto descripcion,
+        c.id_proveedor proveedor,
+        c.marca_producto marca,
+        a.id_traslado id_documento,
+        a.fecha_traslado fecha,
+        b.cantidad_d_traslado cantidad,
+        a.usuario_traslado usuario
+from    m_traslado as a,
+        d_traslado as b,
+        m_producto as c
+where   b.id_traslado = a.id_traslado
+    and b.id_producto = c.id_producto
+    and c.id_proveedor = ifnull($P{P_ID_PROVEEDOR}, c.id_proveedor)
+    and date_format(a.fecha_traslado, '%Y-%m-%d') between ifnull($P{P_FECHA_INICIAL}, curdate()) and  ifnull($P{P_FECHA_FINAL}, curdate())
+
+UNION ALL
+
+-- consulta movimientos de ajuste
+select 	concat('Ajuste (',b.tipo_ajuste,')') tipo,
+	      c.id_producto codigo,
+        c.desc_producto descripcion,
+        c.id_proveedor proveedor,
+        c.marca_producto marca,
+        b.id_d_ajuste id_documento,
+        b.fecha_ajuste fecha,
+        b.cantidad_ajuste cantidad,
+        b.usuario_ajuste usuario
+from    d_ajuste as b,
+        m_producto as c
+where   b.id_producto = c.id_producto
+    and c.id_proveedor = ifnull($P{P_ID_PROVEEDOR}, c.id_proveedor)
+    and date_format(b.fecha_ajuste, '%Y-%m-%d') between ifnull($P{P_FECHA_INICIAL}, curdate()) and  ifnull($P{P_FECHA_FINAL}, curdate())
+) as x
+where x.codigo = ifnull($P{P_ID_PRODUCTO}, x.codigo)
+order by x.codigo, x.fecha, x.id_documento]]>
+	</queryString>
+	<field name="producto" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="id_documento" class="java.lang.Integer"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.math.BigDecimal"/>
+	<group name="producto">
+		<groupExpression><![CDATA[$F{producto}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement uuid="3707213d-7000-4e3a-b756-f994d5854eeb" mode="Opaque" x="-21" y="7" width="843" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+					<textField>
+						<reportElement uuid="d024d842-565c-4116-8e81-90c198833931" style="SubTitle" x="21" y="0" width="802" height="24" forecolor="#736343"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<image>
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" x="474" y="0" width="82" height="66"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/reportes/logotipo.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="91a8915f-d49f-4191-af0e-f7fb7f7aa758" style="SubTitle" x="1" y="44" width="459" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V. 2.1.0   MSIG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="1" y="0" width="459" height="44"/>
+				<textElement verticalAlignment="Middle">
+					<font size="36" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Movimiento de Producto]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="9a983f7f-a341-4881-8938-4526074fa21b" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="de40e731-a438-4e24-be97-9c1eeca1eefc" style="Column header" x="0" y="0" width="133" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Tipo Movimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7de89a6-485d-4854-a1a6-b57658beba68" style="Column header" x="133" y="1" width="133" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6e30c38-f649-4206-bbe9-11ccf632eabb" style="Column header" x="267" y="1" width="133" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Fecha Movimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="06f6d2b9-ae32-40b5-bbc0-de54de24d7eb" style="Column header" x="400" y="0" width="69" height="15" forecolor="#736343"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="8c557f8b-c55d-474f-bf75-42720028c59d" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="9e368200-4413-46e0-babb-ad054c221f97" style="Detail" x="1" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="b14f2801-fa3b-49bb-a136-c7fbf3423ff2" style="Detail" x="134" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_documento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="6592c78a-ed5c-416a-9a5f-edd0d508fffe" style="Detail" x="267" y="0" width="133" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="0ef1935d-da4e-41d3-b65b-6a445656e398" style="Detail" x="400" y="0" width="69" height="15"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="ce6bb45d-ab7f-49a2-af9b-e84173d8c2e5" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="18c33c1a-1dd3-45f4-b0ce-182a864bef48" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="d3e5aa0a-1290-4ad2-88e2-141b361bcfc3" style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="99d227d9-eeff-4531-8c66-4772a6174835" style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="ef0e1195-8cfd-42a5-a5f4-71c6dcd6a361" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

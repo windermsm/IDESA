@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="390" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b5f33bb-40de-47a0-a3db-924f2c3506a3">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="223"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_ANTICIPO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_RETENCION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 	*
+FROM 	m_retencion 
+WHERE 	id_retencion = $P{P_ID_RETENCION}]]>
+	</queryString>
+	<field name="id_retencion" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_retencion" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha en la que se genero la retención en la SAT.]]></fieldDescription>
+	</field>
+	<field name="numero_retencion" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de retención generado por la SAT.]]></fieldDescription>
+	</field>
+	<field name="monto_retencion" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cantidad pagada en la retención.]]></fieldDescription>
+	</field>
+	<field name="nit_retencion" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de NIT del Proveedor.]]></fieldDescription>
+	</field>
+	<field name="id_compra" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_COMPRA]]></fieldDescription>
+	</field>
+	<field name="fecha_pago_retencion" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha en la que se realizo el pago de la retención.]]></fieldDescription>
+	</field>
+	<field name="datos_pago_retencion" class="java.lang.String">
+		<fieldDescription><![CDATA[Datos del metodo utilizado para pagar la retención.]]></fieldDescription>
+	</field>
+	<field name="guia_retencion" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de Guia del envio de la retencion.]]></fieldDescription>
+	</field>
+	<field name="fecha_envio_retencion" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha del envio de la retención segun el númeor de guia.]]></fieldDescription>
+	</field>
+	<title>
+		<band height="300" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="64" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="54" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory 3.0]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="62" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="26" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="81" y="0" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[RETENCION]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="12" width="350" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="38" width="350" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="52249fab-1109-43c0-a21d-31237737f09d" style="Column header" x="0" y="99" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Retención:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="306d562e-a5ec-4e82-977a-5146a1850eec" style="Detail" x="63" y="99" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_retencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="65437c2c-0605-4973-96ca-577a3fafe9ef" style="Column header" x="0" y="111" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Numero:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2adbb8b7-adf2-4268-b77f-1263edce4650" style="Detail" x="63" y="111" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_retencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="08cd4c2c-f9cf-4e28-a99d-94e11ee9dce9" style="Column header" x="0" y="131" width="555" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Datos:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d916d90f-f705-414e-a762-bdeb3e2a2c34" style="Detail" x="0" y="143" width="555" height="69"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datos_pago_retencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="527fae08-6002-4001-ba09-22db9dc50438" style="Column header" x="444" y="218" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b4efac9d-6ecf-4448-9161-fee8eb20bfd9" style="Detail" x="489" y="218" width="66" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto_retencion}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="c651e086-496d-447e-9f24-6b77021b8ba6" x="0" y="125" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="0" y="87" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Emisión:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="63" y="87" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_emision_retencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="154" y="87" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Pägo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="154" y="99" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Compra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="154" y="111" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Numero de NIT:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="217" y="87" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_pago_retencion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="217" y="99" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_compra}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="217" y="111" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nit_retencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="310" y="87" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha Envío:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="489a9e7b-870e-455f-9651-c1be7649e90e" style="Column header" x="310" y="99" width="63" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[No. de Guia:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="373" y="87" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_envio_retencion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="db6ee35a-81f8-44f5-bbe4-49f6d00047e0" style="Detail" x="373" y="99" width="87" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guia_retencion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="390" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="726e0c61-52cd-4e3b-b460-6165990169e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_DETALLE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TIPO_PLANILLA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  *, 
+        date_format(b.fecha_inicial_planilla, '%d-%m-%Y') AS inicio, 
+        date_format(b.fecha_final_planilla, '%d-%m-%Y') AS fin,
+        (salario_d_planilla + bonificacion_d_planillla + comision_d_planilla + horas_extras_d_planilla) AS salario,
+        (igss_d_planilla + descuentos_d_planilla + creditos_d_planilla + vales_d_planilla) AS deducciones,
+        ( (salario_d_planilla + bonificacion_d_planillla + comision_d_planilla + horas_extras_d_planilla) - (igss_d_planilla + descuentos_d_planilla + creditos_d_planilla + vales_d_planilla)) AS total
+FROM    d_planilla AS a,
+        m_planilla AS b
+WHERE   a.id_planilla = b.id_planilla
+    AND a.id_d_planilla = $P{P_ID_DETALLE}]]>
+	</queryString>
+	<field name="id_d_planilla" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="id_planilla" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_PLANILLA]]></fieldDescription>
+	</field>
+	<field name="id_empleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_EMPLEADO]]></fieldDescription>
+	</field>
+	<field name="nombre_d_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del empleado de la tabla M_EMPLEADO.]]></fieldDescription>
+	</field>
+	<field name="puesto_d_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Puesto que desempeña el empleado.]]></fieldDescription>
+	</field>
+	<field name="salario_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Salario que gana el empleado de la tabla M_EMPLEADO.]]></fieldDescription>
+	</field>
+	<field name="bonificacion_d_planillla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de bonificación ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="igss_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de IGSS ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="comision_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de comisión ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="horas_extras_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de horas extras ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="descuentos_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de descuentos ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="creditos_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de descuentos por créditos ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="vales_d_planilla" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Valor de vales de mercaderia ingresado por el Administrador.]]></fieldDescription>
+	</field>
+	<field name="comentarios_d_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Comentarios para tener una referencia de los descuentos.]]></fieldDescription>
+	</field>
+	<field name="id_sucursal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_SUCURSAL]]></fieldDescription>
+	</field>
+	<field name="anio_planilla" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Año del periodo a pagar.]]></fieldDescription>
+	</field>
+	<field name="mes_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del mes que se desea pagar.]]></fieldDescription>
+	</field>
+	<field name="periodo_planilla" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Numero de pago del mes.]]></fieldDescription>
+	</field>
+	<field name="fecha_inicial_planilla" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha incio de la planilla.]]></fieldDescription>
+	</field>
+	<field name="fecha_final_planilla" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha final de la planilla.]]></fieldDescription>
+	</field>
+	<field name="fecha_elaboro_planilla" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha y hora de la elaboración de la planilla.]]></fieldDescription>
+	</field>
+	<field name="usuario_elaboro_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que grabó la información.]]></fieldDescription>
+	</field>
+	<field name="tipo_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[El tipo de salario, ordinario, bonos, etc.]]></fieldDescription>
+	</field>
+	<field name="estado_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Estado de la planilla Activa o Inactiva en caso se quiera eliminar.]]></fieldDescription>
+	</field>
+	<field name="comentario_planilla" class="java.lang.String">
+		<fieldDescription><![CDATA[Sirve para dejar algun tipo de anotacion.]]></fieldDescription>
+	</field>
+	<field name="inicio" class="java.lang.String"/>
+	<field name="fin" class="java.lang.String"/>
+	<field name="salario" class="java.math.BigDecimal"/>
+	<field name="deducciones" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Monto total de la Factura.]]></fieldDescription>
+	</field>
+	<title>
+		<band height="350" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="90" y="0" width="331" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[BOLETA DE PAGO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="90" y="12" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="90" y="48" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TIPO_PLANILLA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="90" y="24" width="331" height="24"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_INFORMACION}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="f9422706-6767-4182-835b-05700b28ae30" x="0" y="76" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f2b65a7d-8343-4773-9793-5f1977e11aa4" style="Column header" x="0" y="81" width="75" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ID Boleta:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f920d7a7-768a-4c4d-b639-232c982c12ba" style="Detail" x="75" y="81" width="50" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="57a4780c-4072-4eec-8ca4-3b16bda99fa2" style="Column header" x="1" y="93" width="74" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ID Planilla:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="179491c6-38e9-4b56-825e-e49295dcfb8a" style="Column header" x="129" y="81" width="86" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ID Empleado:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7e3c39f8-a9a2-49c4-bd0d-7626e72cd367" style="Detail" x="75" y="93" width="50" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_planilla}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="46a7b8f8-8ad3-4625-968b-140375ea097a" style="Detail" x="215" y="81" width="50" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_empleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7aab861a-45b1-4f49-935b-a7dcfb615bee" style="Column header" x="271" y="81" width="50" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="abf25cd9-af2d-454e-8064-e054fb28f7ab" style="Detail" x="321" y="81" width="234" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fd5c7dea-2a2b-43bd-b246-4492e4cab94a" style="Column header" x="271" y="93" width="50" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Puesto:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="974d57ec-ae08-4d68-b756-5c338dfae4f4" style="Detail" x="321" y="93" width="234" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{puesto_d_planilla}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6cab8cf4-6be9-4670-8662-5e1264610189" x="0" y="109" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="1" y="131" width="74" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Salario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="1" y="113" width="214" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Detalle Salario]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7f411e50-c6d1-40d7-980f-0d9aba177458" style="Detail" x="75" y="131" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salario_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="215" y="113" width="172" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Detalle Deducciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7c9c39a-1b6d-4ec7-b98c-e8704a75d92d" style="Column header" x="1" y="143" width="74" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Bonificación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1516597-06f7-4b44-bdfd-b8847038fd73" style="Column header" x="215" y="131" width="68" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[IGSS:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d5f5ab69-d668-418a-b4f1-2fd5c2c953ea" style="Detail" x="75" y="143" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bonificacion_d_planillla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b99aa0e0-8021-405a-bf29-caed0757820d" style="Column header" x="0" y="167" width="75" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Comisión:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3b63fae7-0aa5-4159-8cb6-33f48a4f95c7" style="Detail" x="283" y="131" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{igss_d_planilla}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="dd24a550-9a15-41e7-a6b0-d7d0ab0b8ddc" style="Detail" x="75" y="167" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comision_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="24e941af-a768-4b20-81da-2c61644c5b30" style="Column header" x="1" y="155" width="74" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Horas Extras:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="511248a9-b4c7-415e-b048-009e8279665d" style="Detail" x="75" y="155" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horas_extras_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b50598e7-a40b-4f8e-9189-a82e6fa7a8ce" style="Column header" x="215" y="143" width="68" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Descuentos:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6057a306-b96f-49c0-adcf-37dc23e70a3c" style="Detail" x="283" y="143" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descuentos_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="22a28573-627a-46ef-9301-ee5af3a24a28" style="Column header" x="215" y="155" width="68" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Créditos:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8d8a0fce-fcbe-4a8f-9fee-15da41324c5e" style="Detail" x="283" y="155" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{creditos_d_planilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="79aedb05-ec23-46b4-827f-2ac68801aa33" style="Column header" x="215" y="167" width="68" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Vales:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8b30022a-4c8e-4beb-aa1d-6fc7c64a6dab" style="Detail" x="283" y="167" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vales_d_planilla}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="db6a655f-cfa5-46a0-940f-a22c409cd004" x="215" y="184" width="118" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="9593afb7-8231-4799-859a-db7ee1788035" x="0" y="185" width="125" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="2e230e75-87c0-4a73-b29a-db06861256b4" style="Column header" x="387" y="113" width="168" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Comentario:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6778e773-c40d-4d07-98ba-4097d420724a" style="Detail" x="387" y="125" width="168" height="122"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comentarios_d_planilla}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="dbe612b2-8c6e-4459-9129-396d5d2c1997" style="Column header" x="215" y="93" width="50" height="12" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="179491c6-38e9-4b56-825e-e49295dcfb8a" style="Column header" x="129" y="93" width="86" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha Impresión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="0" y="191" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7f411e50-c6d1-40d7-980f-0d9aba177458" style="Detail" x="45" y="191" width="79" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7f411e50-c6d1-40d7-980f-0d9aba177458" style="Detail" x="251" y="191" width="82" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deducciones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="215" y="191" width="36" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8eeb5b6-f3db-4dfe-96f5-0a69e05a58d9" style="Column header" x="0" y="213" width="45" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Líquido:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7f411e50-c6d1-40d7-980f-0d9aba177458" style="Detail" x="45" y="213" width="79" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="3ff46f69-6a4e-410e-a683-4aae0a382011" x="213" y="326" width="116" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b1516597-06f7-4b44-bdfd-b8847038fd73" style="Column header" x="195" y="314" width="18" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1516597-06f7-4b44-bdfd-b8847038fd73" style="Column header" x="215" y="329" width="114" height="12" forecolor="#736343"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Recibí conforme.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1516597-06f7-4b44-bdfd-b8847038fd73" style="Column header" x="1" y="257" width="554" height="26" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Por este medio hago constar que recibo conforme la cantidad estipulada en este documento como concepto de salario que corresponder al periodo del                      al                     .]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="974d57ec-ae08-4d68-b756-5c338dfae4f4" style="Detail" x="194" y="269" width="55" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inicio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="974d57ec-ae08-4d68-b756-5c338dfae4f4" style="Detail" x="266" y="269" width="55" height="12"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fin}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a0879c6d-cb2e-44e5-a689-a7c179026424" style="Detail" x="90" y="60" width="331" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="60" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="50" width="75" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory 3.0]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+</jasperReport>

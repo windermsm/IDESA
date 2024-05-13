@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Codigo de Barras" pageWidth="160" pageHeight="70" columnWidth="160" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="18e6180f-25be-4a48-8582-05b021d0eb49">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="P_CODIGO_PRODUCTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * 
+from   m_producto 
+where  id_producto = $P{P_CODIGO_PRODUCTO}]]>
+	</queryString>
+	<field name="id_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marca_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Marca, nombre de fabricantes o comercializadora del Producto.]]></fieldDescription>
+	</field>
+	<field name="desc_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del Producto el cual sera el que se imprima en todos los reportes y Facturas.]]></fieldDescription>
+	</field>
+	<field name="linea_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Categoria, Tipo o Familia a la que petenece el Producto.]]></fieldDescription>
+	</field>
+	<field name="precio_compra_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Precio o Costo del Producto, este se actualiza en la Compra.]]></fieldDescription>
+	</field>
+	<field name="precio_est_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Precio normal de venta del Producto segun porcentaje ingresado.]]></fieldDescription>
+	</field>
+	<field name="id_proveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Foranea - M_PROVEEDOR.]]></fieldDescription>
+	</field>
+	<field name="exi_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cantidad de existencia en bodega de este Producto.]]></fieldDescription>
+	</field>
+	<field name="unidad_medida_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Unidad de medida de Venta de este Producto.]]></fieldDescription>
+	</field>
+	<field name="minimo_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cantidad minima para que el sistema avise cuando se esta agotando el Producto.]]></fieldDescription>
+	</field>
+	<field name="maximo_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cantidad maxima que se puede comprar de este Producto.]]></fieldDescription>
+	</field>
+	<field name="prj_est_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Porcentaje utilizado para el Precio Normal de Venta.]]></fieldDescription>
+	</field>
+	<field name="prj_min_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Porcentaje utilizado para el Precio Minimo de Venta.]]></fieldDescription>
+	</field>
+	<field name="precio_min_producto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Precio minimo para la Venta, este se calcula automaticamente.]]></fieldDescription>
+	</field>
+	<field name="codigo_fabricante" class="java.lang.String">
+		<fieldDescription><![CDATA[Codigo de barra que traen los productos. Esto se utiliza si se desea usar un Lectora para la Venta.]]></fieldDescription>
+	</field>
+	<field name="ubicacion_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Esto identifica la ubicación en bodega del Producto.]]></fieldDescription>
+	</field>
+	<field name="factura_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Si el producto es a consignacion y este debe ser Facturado siempre que se venda.]]></fieldDescription>
+	</field>
+	<field name="descuento_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Esto permite saber si al Producto se le puede aplicar descuento o no.]]></fieldDescription>
+	</field>
+	<field name="visible_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Esto indica si el Producto estara visible para que lo puedan vender o ocultarlo para que no pueda ser vendido.]]></fieldDescription>
+	</field>
+	<field name="serie_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Esto indica si el producto debe venderse o comprarse con numero de serie]]></fieldDescription>
+	</field>
+	<field name="componente_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Este campo indica que al vender a comprar se deben escanear los componentes]]></fieldDescription>
+	</field>
+	<field name="garantia_producto" class="java.lang.String">
+		<fieldDescription><![CDATA[Esto indica si el producto debe venderse con impresion de garantia]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement uuid="77e5771a-c26a-4b94-9521-5edb5f07cf03" x="5" y="27" width="150" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="77e5771a-c26a-4b94-9521-5edb5f07cf03" x="5" y="41" width="150" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desc_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="77e5771a-c26a-4b94-9521-5edb5f07cf03" x="5" y="55" width="150" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio_est_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="77e5771a-c26a-4b94-9521-5edb5f07cf03" x="5" y="2" width="150" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Free 3 of 9 Extended" size="24" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["*" + $F{id_producto} + "*"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

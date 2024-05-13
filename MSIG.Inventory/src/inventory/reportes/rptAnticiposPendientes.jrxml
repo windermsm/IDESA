@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c07d7a1-abb1-4102-a1f9-ec0b0f2639d7">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NIT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIRECCION_SUCURSAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *
+FROM   m_anticipo
+WHERE  estado_anticipo not in('Despachado', 'Devuelto', 'Anulado') 
+   AND DATE_ADD(fecha_entrega_persona_aticipo, INTERVAL 15 DAY) < NOW()]]>
+	</queryString>
+	<field name="id_anticipo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Llave Primaria]]></fieldDescription>
+	</field>
+	<field name="nombre_persona_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre de la Persona que paga el aticipo.]]></fieldDescription>
+	</field>
+	<field name="telefono_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Numeros de teléfono para comunicarse con la persona]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega_persona_aticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que él Cliente entrega el aticipo.]]></fieldDescription>
+	</field>
+	<field name="fecha_entrega_producto_anticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha propuesta por el Empleado para la entrega del Producto solicitado.]]></fieldDescription>
+	</field>
+	<field name="fecha_uso_anticipo" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha en la que le agregaron factura o lo devolvieron]]></fieldDescription>
+	</field>
+	<field name="detalle_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Aquí ingresa el motivo o la descripción de los artículos que el Cliente solicita.]]></fieldDescription>
+	</field>
+	<field name="total_anticipo" class="java.lang.Double">
+		<fieldDescription><![CDATA[Cantidad total entregada por el cliente como anticipo.]]></fieldDescription>
+	</field>
+	<field name="comentarios_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Anotaciones del empleado para este anticipo.]]></fieldDescription>
+	</field>
+	<field name="estado_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Estado del anticipo.]]></fieldDescription>
+	</field>
+	<field name="usuario_registro_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que grabo el registro.]]></fieldDescription>
+	</field>
+	<field name="usuario_modifico_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que modifico el registro.]]></fieldDescription>
+	</field>
+	<field name="id_factura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Referencia - M_FACTURA]]></fieldDescription>
+	</field>
+	<field name="saldo_anticipo" class="java.lang.Double">
+		<fieldDescription><![CDATA[Saldo pendiente de pago para cancelar el Producto.]]></fieldDescription>
+	</field>
+	<field name="nit_anticipo" class="java.lang.String">
+		<fieldDescription><![CDATA[Numero de NIT como referencía del Cliente.]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="81" y="0" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ANTICIPOS PENDIENTES DE ENTREGA]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="12" width="350" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_EMPRESA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="62" width="75" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MSIG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="50" width="75" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory 3.0]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="e199643d-f33b-4c8b-9165-4865e43621bd" stretchType="RelativeToTallestObject" x="0" y="0" width="75" height="50"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/imagenes/imgLogoSistema.png")]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="62" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="38" width="350" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIRECCION_SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="26" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65d907ce-8f12-471c-8a77-a6dab947798c" x="81" y="74" width="350" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_INFORMACION}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="436" y="0" width="119" height="74"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="0db79572-3656-4e5f-b9d7-e49afc5a9806" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="aab03f1a-04f9-4927-ab5c-eaea34fc612d" style="Column header" x="0" y="0" width="65" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID Anticipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="afd5258d-5256-4b19-bcb5-cf891e6b49e1" style="Column header" x="200" y="0" width="50" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="576a7415-8eca-4db9-95ae-ec1c4c5fcddd" style="Column header" x="253" y="0" width="60" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dfaab26c-e651-4f9a-87a7-da6e21f01ba6" style="Column header" x="317" y="0" width="75" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="86bcc999-1d1c-4478-9e78-462cd327177b" style="Column header" x="395" y="1" width="160" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Detalle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aab03f1a-04f9-4927-ab5c-eaea34fc612d" style="Column header" x="66" y="0" width="130" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="516e9f6a-6ee2-4f51-8044-1d296ff4aed6" mode="Opaque" x="0" y="0" width="555" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="75b80d52-ec9e-4295-b0db-ef5c8b2e2c6e" style="Detail" x="0" y="0" width="65" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_anticipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="0ccb9460-b16b-4971-8580-c62afc9bc743" style="Detail" x="200" y="0" width="50" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{total_anticipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="a8c7fd03-40c6-42ac-86a8-11f4bcdcd143" style="Detail" x="253" y="0" width="60" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{saldo_anticipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="bad17349-bcef-4465-ad3c-8536b4f0b28d" style="Detail" x="317" y="0" width="75" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha_entrega_persona_aticipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="72190225-eb87-4ef0-9f64-d0dda86008ce" style="Detail" x="395" y="0" width="160" height="15"/>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{detalle_anticipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="75b80d52-ec9e-4295-b0db-ef5c8b2e2c6e" style="Detail" x="66" y="0" width="130" height="15"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre_persona_anticipo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

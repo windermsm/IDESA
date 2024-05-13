@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="565" leftMargin="20" rightMargin="10" topMargin="10" bottomMargin="10" uuid="d16f3783-e985-4217-bea5-51e42a0e687c">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="P_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_INFORMACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_CIERRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_HORA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_INICIAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_VENTAS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SALDO_TOTAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_ORDEN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_CLIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_SERIE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ID_FACTURA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DEFECTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_CREACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_USUARIO_RECIBE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NUMERO_SERIE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MARCA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MODELO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CARACTERISTICAS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DIAGNOSTICO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ESTADO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_COSTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CASE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CARGADOR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BATERIA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FUENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_COSTO_EXTRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MSN_EXTRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TELEFONO_EMPRESA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DISCO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TARJETA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_RAM4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT NOW() FECHA]]>
+	</queryString>
+	<field name="FECHA" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha de la apertura de Caja.]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="742" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="96153362-d8df-49f1-a72f-bc05ab0033dc" style="SubTitle" x="0" y="36" width="61" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Inventory V.3.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e88344e4-c520-404e-b58f-bc79cb8d0cc2" style="Title" x="91" y="0" width="331" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ORDEN DE SERVICIO]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="4df1965f-1cca-46c3-976b-4f1cde5f7de4" stretchType="RelativeToBandHeight" x="451" y="0" width="114" height="48"/>
+				<imageExpression><![CDATA["C:\\MSIG Inventory\\logo_empresa.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement uuid="1b18b6a5-f51b-4d48-9b5c-9ee24594c908" stretchType="RelativeToBandHeight" x="0" y="0" width="61" height="36"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/inventory/reportes/logotipo.jpg")]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="cafe1cae-87c4-4d97-b92c-dbd5160b40a2" x="0" y="415" width="565" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="cafe1cae-87c4-4d97-b92c-dbd5160b40a2" x="0" y="52" width="565" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="68" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Orden:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="80" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="1" y="92" width="60" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Serie:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="80" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="92" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="68" width="40" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="68" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ID_ORDEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="80" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ID_CLIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="92" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ID_SERIE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="68" width="257" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="80" width="82" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="165" y="92" width="82" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_FECHA_CREACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="104" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID Factura:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="104" width="60" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ID_FACTURA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="125" y="104" width="51" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Encargado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="175" y="104" width="72" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_USUARIO_RECIBE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="80" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Serie:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="92" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Marca:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="250" y="104" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="80" width="135" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NUMERO_SERIE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="92" width="135" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MARCA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="287" y="104" width="135" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MODELO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="224" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Observaciones:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="224" width="359" height="84"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DEFECTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="431" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[El diagnostico debe ser cancelado antes de realizar el servicio. Si el producto es enviado a la capital el precio dependerá del daño que tenga el equipo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="452" width="276" height="21"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[El equipo será entregado con un sello de garantía color plateado, el cual no puede ser removido. Si es removido pierde la garantía.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="473" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[El equipo y el trabajo descrito anteriormente es lo único por el que nos hacemos responsables.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="494" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[-  Tiene 15 días para recoger su equipo despues de la notificación de lo contrario será parte del reciclaje.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="515" width="276" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- El diagnóstico básico frente al cliente no tiene ningún costo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="526" width="276" height="31"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Para proteger su equipo. No se entregará de no presentarse la presente contraseña. De perderla solo puede recogerla el propietario y deberá presentar su documento de identificación.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="308" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Diagnostico:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="308" width="359" height="84"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIAGNOSTICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="140" width="61" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Caracteristicas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="63" y="140" width="359" height="84"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CARACTERISTICAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="419" width="276" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Condiciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="0" y="557" width="276" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- No nos hacemos responsable por cualquier software sin licencia instaldo en el equipo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="419" width="275" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Excepción de responsabilidades:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="431" width="275" height="21"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 1: El cliente corre el riesgo de pérdida total o parcial de archivo en los siguientes casos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="452" width="275" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Sobre archivos almacenados en la computadora cuando esta no entra a sistema o no encienda.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="473" width="275" height="21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Sobre el disco duro y sus archivos. Si el equipo lo botaron a recibió un golpe.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="494" width="275" height="46"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 2: Mal funcionamiento o faltantes de partes de la computadora que no se pueden probar o verificar. Cuando la maquina no enciende o ya fue desarmada. (Teclado, bateria, cargador, pantalla etc.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="540" width="275" height="21"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXCEPCIÓN 3: El cliente corre el riesgo que el equipo por reparar ya no encienda o no emita señal de video total o parcial en los siguientes casos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="563" width="275" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Cualquier reparación electrónica a la tarjeta madre del equipo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="290" y="572" width="275" height="31"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[- Computadoras que tengan síntomas de problemas de video en la tarjeta madre: Si calienta y se apaga. Si calienta fuera de lo normal, no da señal de video correctamente. Si el wifi no funciona.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="347" y="38" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="347" y="14" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Abono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="347" y="26" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Saldo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="382" y="38" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_SALDO_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="382" y="14" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_SALDO_INICIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="382" y="26" width="40" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_SALDO_VENTAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="91" y="706" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Acepto la condiciones del servicio descritas en este documento.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ecb079ce-5af6-48fb-96f6-5baf0e25c1e5" x="91" y="703" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="91" y="36" width="35" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="126" y="36" width="40" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ESTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="92" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Case:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="92" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CASE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="104" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cargador:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="116" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Batería:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="128" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fuente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="104" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CARGADOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="116" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_BATERIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="128" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_FUENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="140" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ram:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="140" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_RAM1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="152" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_RAM2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="68" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DISCO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="382" y="706" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Estoy conforme con el trabajo realizado.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ecb079ce-5af6-48fb-96f6-5baf0e25c1e5" x="382" y="703" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="81" y="691" width="10" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decda148-33e4-4f99-989c-03382e440688" x="371" y="691" width="10" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(f)]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="289" y="607" width="276" height="31" forecolor="#FF0000"/>
+				<textElement textAlignment="Left">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MSN_EXTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="68" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Disco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="164" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_RAM3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="80" width="44" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tarjeta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="80" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TARJETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128c213b-965c-4455-b5f4-49989bc2a021" x="470" y="176" width="95" height="12"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_RAM4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="0" y="128" width="422" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN DEL EQUIPO Y DIAGNOSTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="1" y="56" width="421" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73ad4da5-d358-4942-ae1c-628a6ac8b44f" style="Column header" x="426" y="56" width="139" height="12" forecolor="#736343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[COMPONENTES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
