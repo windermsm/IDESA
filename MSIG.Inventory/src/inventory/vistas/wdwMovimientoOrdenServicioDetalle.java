@@ -493,7 +493,7 @@ public final class wdwMovimientoOrdenServicioDetalle extends javax.swing.JIntern
     
     private void obtenerMarcas() {
         AccesoMarca acceso_marca = new AccesoMarca();
-        Iterator iterador_marca = acceso_marca.listarCategorias(Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText()).iterator();
+        Iterator iterador_marca = acceso_marca.listarMarcas(Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText()).iterator();
         while(iterador_marca.hasNext()) {
             ObjetosMarca marca = (ObjetosMarca) iterador_marca.next();
             cbxMarca.addItem(marca.getMarca_producto());

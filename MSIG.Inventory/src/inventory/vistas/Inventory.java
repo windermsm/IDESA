@@ -254,31 +254,32 @@ public class Inventory extends javax.swing.JFrame {
         menuContabilidadReportePagosFecha = new javax.swing.JMenuItem();
         menuReportes = new javax.swing.JMenu();
         menuComisiones = new javax.swing.JMenu();
+        menuReportesBonificacionesPorEmpleado = new javax.swing.JMenuItem();
         menuReportesComisionesSucursal = new javax.swing.JMenuItem();
         menuReportesComisionesSucursal1 = new javax.swing.JMenuItem();
         menuReportesComisionesSucursal3 = new javax.swing.JMenuItem();
-        menuReportesBonificacionesPorEmpleado = new javax.swing.JMenuItem();
         menuCompras = new javax.swing.JMenu();
         menuReportesComprasPorFecha = new javax.swing.JMenuItem();
         menuReportesDetalleVenta1 = new javax.swing.JMenuItem();
         menuReportesDetalleAbonosProveedor = new javax.swing.JMenuItem();
         menuVentas = new javax.swing.JMenu();
         menuReportesAbonosDetalle = new javax.swing.JMenuItem();
+        menuReportesDetalleGanancia = new javax.swing.JMenuItem();
+        menuReportesDetalleVenta = new javax.swing.JMenuItem();
         menuReportesVentasPorFechaFEL = new javax.swing.JMenuItem();
         menuReportesVentasPorFechaSinFEL = new javax.swing.JMenuItem();
-        menuReportesVentasPorFecha = new javax.swing.JMenuItem();
-        menuReportesDetalleVenta = new javax.swing.JMenuItem();
-        menuReportesDetalleGanancia = new javax.swing.JMenuItem();
         menuReportesComisionesSucursal2 = new javax.swing.JMenuItem();
+        menuReportesVentasPorFecha = new javax.swing.JMenuItem();
         menuInventario = new javax.swing.JMenu();
+        menuAjusteInventarioReporte = new javax.swing.JMenuItem();
+        menuExistenciaPorLinea = new javax.swing.JMenuItem();
         menuInventarioImpreso = new javax.swing.JMenuItem();
         menuReportesMovimientoProducto = new javax.swing.JMenuItem();
-        menuExistenciaPorLinea = new javax.swing.JMenuItem();
-        menuAjusteInventarioReporte = new javax.swing.JMenuItem();
-        menuTopProductos = new javax.swing.JMenuItem();
-        menuTopGanancia = new javax.swing.JMenuItem();
         menuProductosAlMinimo = new javax.swing.JMenuItem();
         menuProductosEnNegativo = new javax.swing.JMenuItem();
+        menurReportesTomaDeInventaio = new javax.swing.JMenuItem();
+        menuTopGanancia = new javax.swing.JMenuItem();
+        menuTopProductos = new javax.swing.JMenuItem();
         menuTrazabilidadSerie = new javax.swing.JMenuItem();
         menuBaseDeDatos = new javax.swing.JMenu();
         menuExportarCatalogoDeProductos = new javax.swing.JMenuItem();
@@ -1210,6 +1211,15 @@ public class Inventory extends javax.swing.JFrame {
 
         menuComisiones.setText("Comisiones");
 
+        menuReportesBonificacionesPorEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuReportesBonificacionesPorEmpleado.setText("Bonificaciones por Empleado");
+        menuReportesBonificacionesPorEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReportesBonificacionesPorEmpleadoActionPerformed(evt);
+            }
+        });
+        menuComisiones.add(menuReportesBonificacionesPorEmpleado);
+
         menuReportesComisionesSucursal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuReportesComisionesSucursal.setText("Comisiones por Empleado");
         menuReportesComisionesSucursal.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
@@ -1276,15 +1286,6 @@ public class Inventory extends javax.swing.JFrame {
             }
         });
         menuComisiones.add(menuReportesComisionesSucursal3);
-
-        menuReportesBonificacionesPorEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuReportesBonificacionesPorEmpleado.setText("Bonificaciones por Empleado");
-        menuReportesBonificacionesPorEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuReportesBonificacionesPorEmpleadoActionPerformed(evt);
-            }
-        });
-        menuComisiones.add(menuReportesBonificacionesPorEmpleado);
 
         menuReportes.add(menuComisiones);
 
@@ -1371,59 +1372,28 @@ public class Inventory extends javax.swing.JFrame {
         });
         menuVentas.add(menuReportesAbonosDetalle);
 
-        menuReportesVentasPorFechaFEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuReportesVentasPorFechaFEL.setText("Ventas FEL por Fecha");
-        menuReportesVentasPorFechaFEL.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+        menuReportesDetalleGanancia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuReportesDetalleGanancia.setText("Detalle de Ganancias por Fecha");
+        menuReportesDetalleGanancia.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
             + "<tr bgcolor=\"#FE642E\">"
             + "<td font color=\"#FFFFFF\">"
-            + "<h2> Ventas por Fecha </h2>"
+            + "<h2> Detalle de Ganancias por Fecha </h2>"
             + "</td>"
             + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
             + "<td>"
             + "</td"
             + "</tr colspan=\"2\">"
             + "<tr><td>"
-            + "Monto total de facturas emitidas a cada cliente"
-            + " ordenadas por fecha y nombre de cliente."
+            + "Muestra la cantidad total de productos vendidos"
+            + " y la ganancia alcanzada por cada producto, totalizado"
+            + " mediante el rango de fecha ingresado."
             + "</td></tr> <table> </html>");
-        menuReportesVentasPorFechaFEL.addActionListener(new java.awt.event.ActionListener() {
+        menuReportesDetalleGanancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuReportesVentasPorFechaFELActionPerformed(evt);
+                menuReportesDetalleGananciaActionPerformed(evt);
             }
         });
-        menuVentas.add(menuReportesVentasPorFechaFEL);
-
-        menuReportesVentasPorFechaSinFEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuReportesVentasPorFechaSinFEL.setText("Ventas Sin Factura FEL");
-        menuReportesVentasPorFechaSinFEL.setActionCommand("Ventas Sin Factura FEL");
-        menuReportesVentasPorFechaSinFEL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuReportesVentasPorFechaSinFELActionPerformed(evt);
-            }
-        });
-        menuVentas.add(menuReportesVentasPorFechaSinFEL);
-
-        menuReportesVentasPorFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuReportesVentasPorFecha.setText("Ventas por Fecha");
-        menuReportesVentasPorFecha.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
-            + "<tr bgcolor=\"#FE642E\">"
-            + "<td font color=\"#FFFFFF\">"
-            + "<h2> Ventas por Fecha </h2>"
-            + "</td>"
-            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
-            + "<td>"
-            + "</td"
-            + "</tr colspan=\"2\">"
-            + "<tr><td>"
-            + "Monto total de facturas emitidas a cada cliente"
-            + " ordenadas por fecha y nombre de cliente."
-            + "</td></tr> <table> </html>");
-        menuReportesVentasPorFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuReportesVentasPorFechaActionPerformed(evt);
-            }
-        });
-        menuVentas.add(menuReportesVentasPorFecha);
+        menuVentas.add(menuReportesDetalleGanancia);
 
         menuReportesDetalleVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuReportesDetalleVenta.setText("Detalle de Ventas por Fecha");
@@ -1448,28 +1418,36 @@ public class Inventory extends javax.swing.JFrame {
         });
         menuVentas.add(menuReportesDetalleVenta);
 
-        menuReportesDetalleGanancia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuReportesDetalleGanancia.setText("Detalle de Ganancias por Fecha");
-        menuReportesDetalleGanancia.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+        menuReportesVentasPorFechaFEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuReportesVentasPorFechaFEL.setText("Ventas FEL por Fecha");
+        menuReportesVentasPorFechaFEL.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
             + "<tr bgcolor=\"#FE642E\">"
             + "<td font color=\"#FFFFFF\">"
-            + "<h2> Detalle de Ganancias por Fecha </h2>"
+            + "<h2> Ventas por Fecha </h2>"
             + "</td>"
             + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
             + "<td>"
             + "</td"
             + "</tr colspan=\"2\">"
             + "<tr><td>"
-            + "Muestra la cantidad total de productos vendidos"
-            + " y la ganancia alcanzada por cada producto, totalizado"
-            + " mediante el rango de fecha ingresado."
+            + "Monto total de facturas emitidas a cada cliente"
+            + " ordenadas por fecha y nombre de cliente."
             + "</td></tr> <table> </html>");
-        menuReportesDetalleGanancia.addActionListener(new java.awt.event.ActionListener() {
+        menuReportesVentasPorFechaFEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuReportesDetalleGananciaActionPerformed(evt);
+                menuReportesVentasPorFechaFELActionPerformed(evt);
             }
         });
-        menuVentas.add(menuReportesDetalleGanancia);
+        menuVentas.add(menuReportesVentasPorFechaFEL);
+
+        menuReportesVentasPorFechaSinFEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuReportesVentasPorFechaSinFEL.setText("Ventas sin Factura FEL");
+        menuReportesVentasPorFechaSinFEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReportesVentasPorFechaSinFELActionPerformed(evt);
+            }
+        });
+        menuVentas.add(menuReportesVentasPorFechaSinFEL);
 
         menuReportesComisionesSucursal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuReportesComisionesSucursal2.setText("Ventas por Cliente");
@@ -1494,9 +1472,73 @@ public class Inventory extends javax.swing.JFrame {
         });
         menuVentas.add(menuReportesComisionesSucursal2);
 
+        menuReportesVentasPorFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuReportesVentasPorFecha.setText("Ventas por Fecha");
+        menuReportesVentasPorFecha.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Ventas por Fecha </h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Monto total de facturas emitidas a cada cliente"
+            + " ordenadas por fecha y nombre de cliente."
+            + "</td></tr> <table> </html>");
+        menuReportesVentasPorFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReportesVentasPorFechaActionPerformed(evt);
+            }
+        });
+        menuVentas.add(menuReportesVentasPorFecha);
+
         menuReportes.add(menuVentas);
 
         menuInventario.setText("Inventario");
+
+        menuAjusteInventarioReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuAjusteInventarioReporte.setText("Ajuste de Inventario");
+        menuAjusteInventarioReporte.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Ajuste de Inventario </h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Impresion ajustes realizados al inventario. "
+            + "</td></tr> <table> </html>");
+        menuAjusteInventarioReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAjusteInventarioReporteActionPerformed(evt);
+            }
+        });
+        menuInventario.add(menuAjusteInventarioReporte);
+
+        menuExistenciaPorLinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuExistenciaPorLinea.setText("Existencia por Linea");
+        menuExistenciaPorLinea.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Existencia por Lineas </h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Impresion del inventario con una linea para ingresar cantidad actual."
+            + "</td></tr> <table> </html>");
+        menuExistenciaPorLinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExistenciaPorLineaActionPerformed(evt);
+            }
+        });
+        menuInventario.add(menuExistenciaPorLinea);
 
         menuInventarioImpreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuInventarioImpreso.setText("Inventario Impreso");
@@ -1545,92 +1587,6 @@ public class Inventory extends javax.swing.JFrame {
         });
         menuInventario.add(menuReportesMovimientoProducto);
 
-        menuExistenciaPorLinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuExistenciaPorLinea.setText("Existencia por Linea");
-        menuExistenciaPorLinea.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
-            + "<tr bgcolor=\"#FE642E\">"
-            + "<td font color=\"#FFFFFF\">"
-            + "<h2> Existencia por Lineas </h2>"
-            + "</td>"
-            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
-            + "<td>"
-            + "</td"
-            + "</tr colspan=\"2\">"
-            + "<tr><td>"
-            + "Impresion del inventario con una linea para ingresar cantidad actual."
-            + "</td></tr> <table> </html>");
-        menuExistenciaPorLinea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuExistenciaPorLineaActionPerformed(evt);
-            }
-        });
-        menuInventario.add(menuExistenciaPorLinea);
-
-        menuAjusteInventarioReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuAjusteInventarioReporte.setText("Ajuste de Inventario");
-        menuAjusteInventarioReporte.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
-            + "<tr bgcolor=\"#FE642E\">"
-            + "<td font color=\"#FFFFFF\">"
-            + "<h2> Ajuste de Inventario </h2>"
-            + "</td>"
-            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
-            + "<td>"
-            + "</td"
-            + "</tr colspan=\"2\">"
-            + "<tr><td>"
-            + "Impresion ajustes realizados al inventario. "
-            + "</td></tr> <table> </html>");
-        menuAjusteInventarioReporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuAjusteInventarioReporteActionPerformed(evt);
-            }
-        });
-        menuInventario.add(menuAjusteInventarioReporte);
-
-        menuTopProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuTopProductos.setText("Top Productos");
-        menuTopProductos.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
-            + "<tr bgcolor=\"#FE642E\">"
-            + "<td font color=\"#FFFFFF\">"
-            + "<h2> Top Productos </h2>"
-            + "</td>"
-            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
-            + "<td>"
-            + "</td"
-            + "</tr colspan=\"2\">"
-            + "<tr><td>"
-            + "Impresion de los productos mas vendidos, "
-            + "durante un periodo especifico."
-            + "</td></tr> <table> </html>");
-        menuTopProductos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTopProductosActionPerformed(evt);
-            }
-        });
-        menuInventario.add(menuTopProductos);
-
-        menuTopGanancia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
-        menuTopGanancia.setText("Top Ganancia");
-        menuTopGanancia.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
-            + "<tr bgcolor=\"#FE642E\">"
-            + "<td font color=\"#FFFFFF\">"
-            + "<h2> Top Ganancia</h2>"
-            + "</td>"
-            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
-            + "<td>"
-            + "</td"
-            + "</tr colspan=\"2\">"
-            + "<tr><td>"
-            + "Impresion de los productos que generan ganancia, "
-            + "durante un periodo especifico."
-            + "</td></tr> <table> </html>");
-        menuTopGanancia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTopGananciaActionPerformed(evt);
-            }
-        });
-        menuInventario.add(menuTopGanancia);
-
         menuProductosAlMinimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuProductosAlMinimo.setText("Productos Al Minimo");
         menuProductosAlMinimo.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
@@ -1677,6 +1633,59 @@ public class Inventory extends javax.swing.JFrame {
             }
         });
         menuInventario.add(menuProductosEnNegativo);
+
+        menurReportesTomaDeInventaio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menurReportesTomaDeInventaio.setText("Toma de Inventario");
+        menurReportesTomaDeInventaio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menurReportesTomaDeInventaioActionPerformed(evt);
+            }
+        });
+        menuInventario.add(menurReportesTomaDeInventaio);
+
+        menuTopGanancia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuTopGanancia.setText("Top Ganancia");
+        menuTopGanancia.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Top Ganancia</h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Impresion de los productos que generan ganancia, "
+            + "durante un periodo especifico."
+            + "</td></tr> <table> </html>");
+        menuTopGanancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTopGananciaActionPerformed(evt);
+            }
+        });
+        menuInventario.add(menuTopGanancia);
+
+        menuTopProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
+        menuTopProductos.setText("Top Productos");
+        menuTopProductos.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Top Productos </h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Impresion de los productos mas vendidos, "
+            + "durante un periodo especifico."
+            + "</td></tr> <table> </html>");
+        menuTopProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTopProductosActionPerformed(evt);
+            }
+        });
+        menuInventario.add(menuTopProductos);
 
         menuTrazabilidadSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgPantallaReporte.png"))); // NOI18N
         menuTrazabilidadSerie.setText("Trazabilidad Serie");
@@ -2420,6 +2429,11 @@ public class Inventory extends javax.swing.JFrame {
         ventana.abrirPantalla(VentasPorFecha);
     }//GEN-LAST:event_menuTrazabilidadSerieActionPerformed
 
+    private void menurReportesTomaDeInventaioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menurReportesTomaDeInventaioActionPerformed
+        wdwReportesTomaDeInventario TomaInventario = new wdwReportesTomaDeInventario();
+        ventana.abrirPantalla(TomaInventario);
+    }//GEN-LAST:event_menurReportesTomaDeInventaioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2573,6 +2587,7 @@ public class Inventory extends javax.swing.JFrame {
     public static javax.swing.JMenuItem menuVentaDeProductos;
     public static javax.swing.JMenu menuVentas;
     public static javax.swing.JMenuItem menuVentasActivas;
+    private javax.swing.JMenuItem menurReportesTomaDeInventaio;
     public static javax.swing.JPanel pnlLog;
     public static javax.swing.JDesktopPane pnlPrincipal;
     public static javax.swing.JPopupMenu.Separator sepExportar;

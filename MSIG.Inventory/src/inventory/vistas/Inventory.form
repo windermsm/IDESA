@@ -705,6 +705,17 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
               <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesBonificacionesPorEmpleado">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Bonificaciones por Empleado"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesBonificacionesPorEmpleadoActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuReportesComisionesSucursal">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -745,17 +756,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursal3ActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuReportesBonificacionesPorEmpleado">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Bonificaciones por Empleado"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesBonificacionesPorEmpleadoActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
@@ -838,6 +838,37 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleGanancia">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Ganancias por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ganancias por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra la cantidad total de productos vendidos&quot;&#xd;&#xa;+ &quot; y la ganancia alcanzada por cada producto, totalizado&quot;&#xd;&#xa;+ &quot; mediante el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleGananciaActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleVenta">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Detalle de Ventas por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra cada producto vendido por factura, el sub total&quot;&#xd;&#xa;+ &quot; y el total de todas las ventas realizadas &quot;&#xd;&#xa;+ &quot; en el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleVentaActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFechaFEL">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -860,56 +891,10 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ventas Sin Factura FEL"/>
-                    <Property name="actionCommand" type="java.lang.String" value="Ventas Sin Factura FEL"/>
+                    <Property name="text" type="java.lang.String" value="Ventas sin Factura FEL"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaSinFELActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                  </AuxValues>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFecha">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Ventas por Fecha"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Monto total de facturas emitidas a cada cliente&quot;&#xd;&#xa;+ &quot; ordenadas por fecha y nombre de cliente.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleVenta">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Detalle de Ventas por Fecha"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra cada producto vendido por factura, el sub total&quot;&#xd;&#xa;+ &quot; y el total de todas las ventas realizadas &quot;&#xd;&#xa;+ &quot; en el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleVentaActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuReportesDetalleGanancia">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Detalle de Ganancias por Fecha"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Detalle de Ganancias por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Muestra la cantidad total de productos vendidos&quot;&#xd;&#xa;+ &quot; y la ganancia alcanzada por cada producto, totalizado&quot;&#xd;&#xa;+ &quot; mediante el rango de fecha ingresado.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesDetalleGananciaActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -929,6 +914,20 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesComisionesSucursal2ActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuReportesVentasPorFecha">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ventas por Fecha"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ventas por Fecha &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Monto total de facturas emitidas a cada cliente&quot;&#xd;&#xa;+ &quot; ordenadas por fecha y nombre de cliente.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesVentasPorFechaActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="menuInventario">
@@ -939,6 +938,34 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
               <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuAjusteInventarioReporte">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ajuste de Inventario"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ajuste de Inventario &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion ajustes realizados al inventario. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAjusteInventarioReporteActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuExistenciaPorLinea">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Existencia por Linea"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Existencia por Lineas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion del inventario con una linea para ingresar cantidad actual.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExistenciaPorLineaActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuInventarioImpreso">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -968,62 +995,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuReportesMovimientoProductoActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuExistenciaPorLinea">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Existencia por Linea"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Existencia por Lineas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion del inventario con una linea para ingresar cantidad actual.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExistenciaPorLineaActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuAjusteInventarioReporte">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Ajuste de Inventario"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Ajuste de Inventario &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion ajustes realizados al inventario. &quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAjusteInventarioReporteActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuTopProductos">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Top Productos"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos mas vendidos, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopProductosActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuTopGanancia">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Top Ganancia"/>
-                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Ganancia&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos que generan ganancia, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopGananciaActionPerformed"/>
-                  </Events>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuProductosAlMinimo">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -1050,6 +1021,45 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosEnNegativoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menurReportesTomaDeInventaio">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Toma de Inventario"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menurReportesTomaDeInventaioActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTopGanancia">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Top Ganancia"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Ganancia&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos que generan ganancia, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopGananciaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuTopProductos">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/inventory/imagenes/imgPantallaReporte.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Top Productos"/>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Top Productos &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Impresion de los productos mas vendidos, &quot;&#xd;&#xa;+ &quot;durante un periodo especifico.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTopProductosActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuTrazabilidadSerie">

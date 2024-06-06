@@ -12,7 +12,7 @@ public class AccesoMarca {
     
     AccesoInventario Acceso = new AccesoInventario();
     
-    public ArrayList<ObjetosMarca> listarCategorias(String pUsuario, String pTerminal) {
+    public ArrayList<ObjetosMarca> listarMarcas(String pUsuario, String pTerminal) {
         
         ArrayList<ObjetosMarca> listado = new ArrayList<>();
         String sql = "SELECT * FROM m_marca ORDER BY marca_producto";
