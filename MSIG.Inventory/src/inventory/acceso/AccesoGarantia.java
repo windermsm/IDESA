@@ -12,7 +12,7 @@ public class AccesoGarantia {
 
         AccesoInventario Acceso = new AccesoInventario();
         String sql = "";
-        sql = "insert into m_reclamo_garantias values(null,'" + pGarantia.getDescripcion() + "','" + pGarantia.getMarca() + "','"
+        sql = "insert into m_reclamo_garantias values(NULL,'" + pGarantia.getDescripcion() + "','" + pGarantia.getMarca() + "','"
                 + pGarantia.getIdFactura() + "','" + pGarantia.getIdProducto() + "','" + pGarantia.getSerieproducto() + "','" + pGarantia.getCliente()
                 + "','" + pGarantia.getNit() + "','" + pGarantia.getFalla() + "','" + pGarantia.getFechaGuardar() + "','"
                 + pUsuario + "','" + pTerminal + "','" + pGarantia.getObservaciones() + "','" + pGarantia.getTiempoGarantia() + "','"

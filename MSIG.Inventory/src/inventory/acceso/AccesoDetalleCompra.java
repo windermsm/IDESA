@@ -22,7 +22,7 @@ public class AccesoDetalleCompra {
 
     public String insertarDetalleCompra(ObjetosDetalleCompra pDetalleCompra, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into d_compra values (0," + pDetalleCompra.getId_compra() + ",'"
+        String sql = "insert into d_compra values (NULL," + pDetalleCompra.getId_compra() + ",'"
                 + pDetalleCompra.getId_producto() + "'," + pDetalleCompra.getCant_d_compra()
                 + "," + pDetalleCompra.getPrecio_d_compra() + "," + pDetalleCompra.getSub_total_d_compra()
                 + ", '" + pDetalleCompra.getComentario_compra() + "'," + pDetalleCompra.getArancel_compra() + ")";

@@ -20,7 +20,7 @@ public class AccesoCliente {
 
     public String insertarCliente(ObjetosCliente pCliente, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_cliente values (0," + pCliente.getId_persona() + ",'"
+        String sql = "insert into m_cliente values (NULL," + pCliente.getId_persona() + ",'"
                 + pCliente.getDir_cliente() + "'," + pCliente.getTel_cliente() + ", " + pCliente.getCelular_cliente() + ", '" + pCliente.getEmail_cliente() + "', " + pCliente.getLimite_credito() + ", " + pCliente.getDias_de_credito() + ", '" + pCliente.getTipo_cliente() + "')";
         try {
             return Acceso.ejecutarConsulta(sql, "Clientes", "Insertar Cliente", pUsuario, pTerminal);

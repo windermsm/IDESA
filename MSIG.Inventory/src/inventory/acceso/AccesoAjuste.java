@@ -6,7 +6,7 @@ public class AccesoAjuste {
 
     public void insertarAjuste(ObjetosAjuste ajuste, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into d_ajuste values (0, '" + ajuste.getId_producto() + "','" + ajuste.getTipo_ajuste() + "'," + ajuste.getCantidad_ajuste() + ",'" + ajuste.getMotivo_ajuste() + "','" + ajuste.getUsuario_ajuste() + "', now())";
+        String sql = "insert into d_ajuste values (NULL, '" + ajuste.getId_producto() + "','" + ajuste.getTipo_ajuste() + "'," + ajuste.getCantidad_ajuste() + ",'" + ajuste.getMotivo_ajuste() + "','" + ajuste.getUsuario_ajuste() + "', now())";
         try {
             Acceso.ejecutarConsulta(sql, "Ajuste Inventario", "Insertar Ajuste", pUsuario, pTerminal);
         } catch (Error error) {

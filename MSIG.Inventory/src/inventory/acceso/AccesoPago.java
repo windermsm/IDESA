@@ -8,7 +8,7 @@ public class AccesoPago {
 
     public String insertarPago(ObjetosPago pago, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_pago values (0, '" + pago.getNumero_factura_pago()
+        String sql = "insert into m_pago values (NULL, '" + pago.getNumero_factura_pago()
                 + "', '" + pago.getSerie_factura_pago()
                 + "', " + pago.getNumero_doc_pago()
                 + ", '" + pago.getTipo_doc_pago()

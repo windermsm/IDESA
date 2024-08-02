@@ -20,7 +20,7 @@ public class AccesoBonificacion {
 
     public String insertarBonificacion(ObjetosBonificacion pBonificacion, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_bonificacion values (0, '" + pBonificacion.getDescripcion_bonificacion() + "', "
+        String sql = "insert into m_bonificacion values (NULL, '" + pBonificacion.getDescripcion_bonificacion() + "', "
                 + pBonificacion.getCantidad_bonificacion() + ", '" + pBonificacion.getEstado_bonificacion() + "', " 
                 + pBonificacion.getPorcentaje_bonificacion() + ", '" + pBonificacion.getTipo_empleado() + "', '" + pBonificacion.getId_producto() +"')";
         try {

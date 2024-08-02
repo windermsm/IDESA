@@ -30,7 +30,7 @@ public class AccesoDetalleTraslado {
     
     public String insertarDetalleTraslado(ObjetosDetalleTraslado detalle, String pUsuario, String pTerminal){    
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into d_traslado values (0, " + detalle.getId_traslado() +", '"+
+        String sql = "insert into d_traslado values (NULL, " + detalle.getId_traslado() +", '"+
                 detalle.getId_producto() + "', " + detalle.getCantidad_d_traslado() +
                 ", " + detalle.getTotal_d_traslado() + ")";
         try{

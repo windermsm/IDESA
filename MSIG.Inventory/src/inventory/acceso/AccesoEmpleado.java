@@ -11,7 +11,7 @@ public class AccesoEmpleado {
         AccesoInventario Acceso = new AccesoInventario();
         String sql = "";
         String fecha_salida = ( pEmpleado.getFecha_salida() == null || pEmpleado.getFecha_salida().equals("") ) ? "null" : "'" + pEmpleado.getFecha_salida() + "'";
-        sql = "insert into m_empleado values (null, " + pEmpleado.getId_sucursal() + ", '" + pEmpleado.getTipo_empleado() + "', '" + pEmpleado.getNombre_empleado() + "', '" + pEmpleado.getEstado_empleado() + "', " + pEmpleado.getSalario_empleado() + ", " + pEmpleado.getBono_empleado() + ", '" + pEmpleado.getFecha_ingreso() + "'," + fecha_salida + ", " + pEmpleado.getPorcentaje_comision() + ")";
+        sql = "insert into m_empleado values (NULL, " + pEmpleado.getId_sucursal() + ", '" + pEmpleado.getTipo_empleado() + "', '" + pEmpleado.getNombre_empleado() + "', '" + pEmpleado.getEstado_empleado() + "', " + pEmpleado.getSalario_empleado() + ", " + pEmpleado.getBono_empleado() + ", '" + pEmpleado.getFecha_ingreso() + "'," + fecha_salida + ", " + pEmpleado.getPorcentaje_comision() + ")";
 
         try {
             return Acceso.ejecutarConsulta(sql, "Empleados", "Insertar Empleado", pUsuario, pTerminal);

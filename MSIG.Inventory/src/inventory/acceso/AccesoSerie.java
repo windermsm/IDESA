@@ -39,7 +39,7 @@ public class AccesoSerie {
                 + "estado,"
                 + "fechacreacion,"
                 + "usuarioregistra, fecha_limite_garantia_proveedor, fecha_limite_garantia_cliente)"
-                + "values (null,"
+                + "values (NULL,"
                 + obj.getId_compra() + ",'"
                 + obj.getId_producto() + "',"
                 + obj.getId_factura() + ","

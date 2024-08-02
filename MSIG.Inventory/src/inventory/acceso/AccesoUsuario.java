@@ -11,7 +11,7 @@ public class AccesoUsuario {
     public String insertarUsuario(ObjetosUsuario pUsuario, String xUsuario, String xTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
         String sql = "insert into m_usuario(id_usuario, id_empleado, tipo_usuario, nombre_usuario, contrasenia_usuario) "
-                + "values (0," + pUsuario.getId_empleado() + ", '" + pUsuario.getTipo_usuario() + "', '" + pUsuario.getNombre_usuario() + "', '" + pUsuario.getContrasenia_usuario() + "')";
+                + "values (NULL," + pUsuario.getId_empleado() + ", '" + pUsuario.getTipo_usuario() + "', '" + pUsuario.getNombre_usuario() + "', '" + pUsuario.getContrasenia_usuario() + "')";
 
         try {
             return Acceso.ejecutarConsulta(sql, "Usuarios", "Insertar Usuario", xUsuario, xTerminal);

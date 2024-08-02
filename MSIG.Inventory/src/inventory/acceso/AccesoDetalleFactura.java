@@ -22,7 +22,7 @@ public class AccesoDetalleFactura {
 
     public String insertarDetalleFactura(ObjetosDetalleFactura pDetalleFactura, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into d_factura values (0," + pDetalleFactura.getId_factura() + ",'"
+        String sql = "insert into d_factura values (NULL," + pDetalleFactura.getId_factura() + ",'"
                 + pDetalleFactura.getId_producto() + "'," + pDetalleFactura.getCantidad_d_factura() + ", " 
                 + pDetalleFactura.getPrecio_compra_d_factura() + ", " + pDetalleFactura.getPrecio_estandar_d_factura() + ", "
                 + pDetalleFactura.getPrecio_venta_d_factura() + "," + pDetalleFactura.getSub_total_d_factura()

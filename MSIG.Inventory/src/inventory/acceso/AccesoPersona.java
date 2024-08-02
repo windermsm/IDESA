@@ -20,7 +20,7 @@ public class AccesoPersona {
 
     public String insertarPersona(ObjetosPersona pPersona, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_persona values (0,'" + pPersona.getNit_persona()
+        String sql = "insert into m_persona values (NULL,'" + pPersona.getNit_persona()
                 + "','" + pPersona.getNom_persona() + "')";
         try {
             return Acceso.ejecutarConsulta(sql, "Persona", "Inserta Persona", pUsuario, pTerminal);

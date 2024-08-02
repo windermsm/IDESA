@@ -21,7 +21,7 @@ public class AccesoProveedor {
 
     public String insertarProveedor(ObjetosProveedor pProveedor, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_proveedor values (0," + pProveedor.getId_persona() + ",'"
+        String sql = "insert into m_proveedor values (NULL," + pProveedor.getId_persona() + ",'"
                 + pProveedor.getDir_proveedor() + "'," + pProveedor.getTel_proveedor() + ", '" + pProveedor.getCuenta_proveedor() + "')";
         try {
             return Acceso.ejecutarConsulta(sql, "Proveedores", "Insertar Proveedor", pUsuario, pTerminal);

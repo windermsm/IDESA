@@ -20,7 +20,7 @@ public class AccesoProforma {
 
     public String insertarProforma(ObjetosProforma pProforma, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_proforma values (0, "
+        String sql = "insert into m_proforma values (NULL, "
                 + pProforma.getId_cliente() + ", "
                 + pProforma.getId_empleado() + ", '"
                 + pProforma.getFecha_proforma() + "', '"

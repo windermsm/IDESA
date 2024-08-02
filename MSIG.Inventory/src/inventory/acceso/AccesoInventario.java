@@ -78,7 +78,7 @@ public class AccesoInventario {
     }
 
     public void auditoria(String pConsulta, String pPantalla, String pOpcion, String pUsuario, String pTerminal, String pError) {
-        String consulta = "INSERT INTO d_auditoria VALUES (0, '"
+        String consulta = "INSERT INTO d_auditoria VALUES (NULL, '"
                 + pOpcion + "', '" + pPantalla + "', '" + pUsuario
                 + "', '" + pTerminal + "', '" + pConsulta.replaceAll("'", "") + "', '" + pError.replace("'", "") + "', NOW())";
         try {

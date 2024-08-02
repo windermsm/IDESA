@@ -21,7 +21,7 @@ public class AccesoDetalleProforma {
 
     public String insertarDetalleProforma(ObjetosDetalleProforma pDetalleProforma, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into d_proforma values (0," + pDetalleProforma.getId_proforma() + ",'"
+        String sql = "insert into d_proforma values (NULL," + pDetalleProforma.getId_proforma() + ",'"
                 + pDetalleProforma.getId_producto() + "'," + pDetalleProforma.getCant_d_proforma()
                 + "," + pDetalleProforma.getPrecio_venta_d_proforma() + "," + pDetalleProforma.getSub_total_proforma() + ")";
         try {

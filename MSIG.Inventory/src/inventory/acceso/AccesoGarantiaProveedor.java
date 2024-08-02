@@ -19,7 +19,7 @@ public class AccesoGarantiaProveedor {
 
         AccesoInventario Acceso = new AccesoInventario();
         String sql = "";
-        sql = "insert into m_garantia_proveedor values(null," + pGarantia.getIdProveedor() + ",'" + pGarantia.getSerieFactura() + "','"
+        sql = "insert into m_garantia_proveedor values(NULL," + pGarantia.getIdProveedor() + ",'" + pGarantia.getSerieFactura() + "','"
                 + pGarantia.getNumeroFacturaCompra() + "','" + pGarantia.getMarca() + "','" + pGarantia.getDescripcion() + "','" + pGarantia.getSerieproducto()
                 + "','" + pGarantia.getNit() + "','" + pGarantia.getProveedor() + "','"
                 + pGarantia.getNumGuia() + "','" + pGarantia.getFechaEnvio() + "','" + pGarantia.getFechaNotificacion()

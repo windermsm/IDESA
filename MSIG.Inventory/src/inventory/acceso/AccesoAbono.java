@@ -13,7 +13,7 @@ public class AccesoAbono {
         
         AccesoInventario Acceso = new AccesoInventario();
         double monto = matematicas.redondear(pAbono.getSaldo_pendiente() - pAbono.getMonto_abono());
-        String sql = "INSERT INTO d_abono VALUES (0, " + pAbono.getId_factura() + ", " + pAbono.getMonto_abono() + ", " 
+        String sql = "INSERT INTO d_abono VALUES (NULL, " + pAbono.getId_factura() + ", " + pAbono.getMonto_abono() + ", " 
                 + monto + ", now(), " + pAbono.getComision_sobre_abono() + ", '" + pUsuario + "', '" + pAbono.getTipo_abono() 
                 + "', '" + pAbono.getNumero_abono() + "', '" + pAbono.getBanco_abono() + "')";
         

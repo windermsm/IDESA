@@ -10,7 +10,7 @@ public class AccesoSucursal {
 
     public String insertarSucursal(ObjetosSucursal pSucursal, String pUsuario, String pTerminal) {
         AccesoInventario Acceso = new AccesoInventario();
-        String sql = "insert into m_sucursal values (" + pSucursal.getId_sucursal() + ", '" + pSucursal.getNombre_sucursal() + "', '" + pSucursal.getDescripcion_sucursal() + "', '" + pSucursal.getDireccion_sucursal() + "', '" + pSucursal.getNit_sucursal() + "', '" + pSucursal.getTelefonos_sucursal() + "');";
+        String sql = "insert into m_sucursal values (NULL, '" + pSucursal.getNombre_sucursal() + "', '" + pSucursal.getDescripcion_sucursal() + "', '" + pSucursal.getDireccion_sucursal() + "', '" + pSucursal.getNit_sucursal() + "', '" + pSucursal.getTelefonos_sucursal() + "');";
         return Acceso.ejecutarConsulta(sql, "Sucursal", "Insertar Sucursal", pUsuario, pTerminal);
     }
 

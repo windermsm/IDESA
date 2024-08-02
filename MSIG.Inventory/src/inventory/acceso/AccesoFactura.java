@@ -53,7 +53,7 @@ public class AccesoFactura {
         
         AccesoInventario Acceso = new AccesoInventario();
         
-        String sql = "insert into m_factura values (0, "
+        String sql = "insert into m_factura values (NULL, "
                 + pFactura.getNumero_factura() + ", '"
                 + pFactura.getSerie_factura() + "', '"
                 + pFactura.getFolio_factura() + "', "

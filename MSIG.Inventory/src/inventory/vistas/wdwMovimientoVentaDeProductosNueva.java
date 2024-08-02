@@ -31,6 +31,13 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
     private String metodo_ingreso = null;
     private String metodo_factura = null;
     private String cantidad_decimales = null;
+    private String unidad_medida = null;
+    private String acepta_recargo = null;
+    private String codigo_recargo = null;
+    private String porcentaje_recargo = null;
+    private String descripcion_recargo = null;
+    private String redondea_decimales_recargo = null;
+    private String iva = null;
     private String tamanio_preferido = null;
     private String maximo_permitido_cf = null;
     private AccesoArchivo archivo = new AccesoArchivo();
@@ -73,6 +80,29 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
             agregarLog("Error al obtener el metodo de entrada: " + error.toString());
         }
         
+        agregarLog("Verificando los datos del recargo.");
+        try {
+            acepta_recargo = archivo.leer("[AceptaRecargo]");
+            codigo_recargo = archivo.leer("[CodigoRecargo]");
+            porcentaje_recargo = archivo.leer("[PorcentajeRecargo]");
+            descripcion_recargo = archivo.leer("[DescripcionRecargo]");
+            redondea_decimales_recargo = archivo.leer("[RedondearDecimales]");
+        } catch (IOException error) {
+            acepta_recargo = "NO";
+            codigo_recargo = "0";
+            porcentaje_recargo = "0";
+            descripcion_recargo = "Recargo";
+            redondea_decimales_recargo = "NO";
+            agregarLog("Error al obtener los datos del recargo: " + error.toString());
+        }
+        
+        agregarLog("Verificando el valor del iva.");
+        try {
+            iva = archivo.leer("[IVA]");
+        } catch (IOException error) {
+            iva = "0";
+            agregarLog("Error al obtener el alor del iva: " + error.toString());
+        }
         
         agregarLog("Verificando el método de ingreso de los productos.");
         //obtengo el metodo de ingreso utilizado manual o codigo de barras
@@ -243,6 +273,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         btnReconectar = new javax.swing.JButton();
         btnGeneraFEL = new javax.swing.JButton();
         txtTipoConexionFEL = new javax.swing.JComboBox<>();
+        btnRecargoPropina = new javax.swing.JButton();
         pnlBusqueda = new javax.swing.JPanel();
         lblBuscar = new javax.swing.JLabel();
         btnBuscarProducto = new javax.swing.JButton();
@@ -430,6 +461,14 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
 
         txtTipoConexionFEL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GFN", "GFC" }));
 
+        btnRecargoPropina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgBotonPropina.png"))); // NOI18N
+        btnRecargoPropina.setToolTipText("");
+        btnRecargoPropina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargoPropinaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -453,11 +492,13 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
                 .addComponent(bntActivarPos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReconectar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRecargoPropina)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTipoConexionFEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGeneraFEL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNuevo)
@@ -467,15 +508,24 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
+            .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtIdBusqueda)
                         .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlBotonesLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnReconectar)
+                            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSerie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bntActivarPos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(pnlBotonesLayout.createSequentialGroup()
                         .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRecargoPropina)
                             .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnNuevo)
                                 .addComponent(btnGuardar)
@@ -485,15 +535,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
                             .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cbxTipoImpresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cbxTamanoImpresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlBotonesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnReconectar)
-                            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnSerie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bntActivarPos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -3469,6 +3511,69 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         generaFacturaElectronicaFEL();
     }//GEN-LAST:event_btnGeneraFELActionPerformed
 
+    private void btnRecargoPropinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargoPropinaActionPerformed
+
+        agregarLog("Porcentage Recargo: " + this.porcentaje_recargo);
+
+        //Valida que se acepten recargos a la factura
+        agregarLog("Verificando que se acepten recargos a la Venta.");
+        if (acepta_recargo.equals("NO")) {
+
+            Mensaje.manipulacionExcepciones("critico", "No se aceptan recargos en las ventas", "Boton Agregar Recargo");
+
+        } else {
+
+            try {
+
+                agregarLog("Agregando la linea de Recargo de la Venta.");
+
+                double valor_porcentaje_factura = Double.parseDouble(this.porcentaje_recargo) / 100;
+                double total_recargo_factura_con_dcimales = matematica.aproxima(Double.parseDouble(String.valueOf(this.total_factura * valor_porcentaje_factura)), 2);
+
+                float total_recargo_factura = 0;
+
+                if (redondea_decimales_recargo.equals("SI")) {
+                    agregarLog("Redondear Propína");
+                    total_recargo_factura = (float) matematica.aproxima(total_recargo_factura_con_dcimales, 0);
+                } else {
+                    total_recargo_factura = (float) total_recargo_factura_con_dcimales;
+                }
+
+                try {
+                    //enviar datos al detalle de la pantalla de ventas con los datos del producto
+                    Object[] datos = new Object[12];
+                    try { datos[0] = detalle.getRowCount() + 1; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Fila Seleccionada \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[1] = this.codigo_recargo; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "ID Producto \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[2] = this.descripcion_recargo; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Descripcion \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[3] = 1; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Cantidad Venta \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[4] = 0; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Precio Compra \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[5] = total_recargo_factura; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Precio Descuento \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[6] = 1; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Precio Minimo \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[7] = total_recargo_factura; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Precio Normal \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[8] = total_recargo_factura; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Total \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[9] = "S/C"; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Comentario \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[10] = 0.0; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Arancel \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    try { datos[11] = "NO"; } catch (Exception Error) { Mensaje.manipulacionExcepciones("critico", "Guardado \nError: " + Error.getMessage(), "Dato No. " + detalle.getRowCount() + 1); }
+                    detalle.addRow(datos);
+                    tblDetalleFactura.setModel(detalle);
+
+                } catch (Exception e) {
+                    Mensaje.manipulacionExcepciones("critico", "Ocurrio al asignar los valores del recargo al detalle. \n" + e.getMessage(), "Error Asiganción");
+                    agregarLog("Error al agregar Recargo al detalle: " + e.toString());
+                }
+
+            } catch (Exception Error) {
+                Mensaje.manipulacionExcepciones("critico", "Ocurrio un error al validar el Recargo.", "Validar Recargo");
+                agregarLog("Error al validar el recargo de la Venta");
+                agregarLog(Error.getMessage());
+            }
+
+        }
+
+        totalFactura();
+        limpiarBusqueda();
+    }//GEN-LAST:event_btnRecargoPropinaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntActivarPos;
     public static javax.swing.JButton btnAgregar;
@@ -3481,6 +3586,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
     private javax.swing.JButton btnGuardar;
     public static javax.swing.JButton btnMostrarImagen;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnRecargoPropina;
     private javax.swing.JButton btnReconectar;
     private javax.swing.JButton btnSerie;
     private javax.swing.JComboBox cbxDescuento;
