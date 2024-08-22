@@ -20,6 +20,7 @@ public class AccesoCatalogoRecargo {
         try {
             this.wdw_recargo = wdwRecargo;
             modeloTabla.addColumn("ID");
+            modeloTabla.addColumn("Abreviatura");
             modeloTabla.addColumn("Descripcion");
             modeloTabla.addColumn("Valor %");
             modeloTabla.addColumn("Estado");
@@ -29,18 +30,19 @@ public class AccesoCatalogoRecargo {
         }
     }
 
-    public void guardarRecargo(String descripcion, String valor, String estado, String pUsuario, String pTerminal) {
+    public void guardarRecargo(String abreviatura, String descripcion, String valor, String estado, String pUsuario, String pTerminal) {
         if (!descripcion.equals("") || !valor.equals("")) {
             
             PreparedStatement pst;
             int exitoso = 0;
-            String sql = "INSERT INTO m_recargo ( descripcion, valor, estado ) VALUES (?,?,?);";
+            String sql = "INSERT INTO m_recargo ( abreviatura, descripcion, valor, estado ) VALUES (?,?,?,?);";
 
             try {
                 pst = acceso.prepararConsulta(sql, "Recargo", "Guardar", pUsuario, pTerminal);
-                pst.setString(1, descripcion);
-                pst.setString(2, valor);
-                pst.setString(3, estado);
+                pst.setString(1, abreviatura);
+                pst.setString(2, descripcion);
+                pst.setString(3, valor);
+                pst.setString(4, estado);
                 exitoso = pst.executeUpdate();
                 if (exitoso == 1) {
                     JOptionPane.showMessageDialog(wdw_recargo, "Recargo registrado con éxito.");
@@ -56,9 +58,9 @@ public class AccesoCatalogoRecargo {
         }
     }
 
-    public void modificarRecargo(String id, String descripcion, String valor, String estado) {
+    public void modificarRecargo(String abreviatura, String id, String descripcion, String valor, String estado) {
             PreparedStatement pst;
-            String sql = "UPDATE m_recargo SET descripcion = '" + descripcion + "'"
+            String sql = "UPDATE m_recargo SET abreviatura = '" + abreviatura + "', descripcion = '" + descripcion + "'"
                     + ",estado ='" + estado + "', valor = " + valor + " WHERE id_recargo ='" + id + "'";
             int modificado = 0;
 
@@ -67,9 +69,6 @@ public class AccesoCatalogoRecargo {
                 modificado = pst.executeUpdate();
                 if (modificado == 1) {
                     JOptionPane.showMessageDialog(wdw_recargo, "Modificación exitosa.");
-                    wdw_recargo.txtIdRecargo.setText("");
-                    wdw_recargo.txtDescripcion.setText("");
-                    wdw_recargo.txtValor.setText("");
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(wdw_recargo, "Error al modificar Recargo. \n" + e);
@@ -89,10 +88,12 @@ public class AccesoCatalogoRecargo {
             resultados = pst.executeQuery();
             modeloTabla.setRowCount(0);
             while (resultados.next()) {
-                modeloTabla.addRow(new Object[]{resultados.getString("id_recargo"),
-                            resultados.getString("descripcion"), 
-                            resultados.getString("valor"), 
-                            resultados.getString("estado")});
+                modeloTabla.addRow(new Object[]{
+                    resultados.getString("id_recargo"),
+                    resultados.getString("abreviatura"),
+                    resultados.getString("descripcion"),
+                    resultados.getString("valor"),
+                    resultados.getString("estado")});
             }
         } catch (SQLException e) {
         } finally {
@@ -110,6 +111,7 @@ public class AccesoCatalogoRecargo {
             datos = pst.executeQuery();
             if (datos.first()) {
                 wdw_recargo.txtIdRecargo.setText(datos.getString("id_recargo"));
+                wdw_recargo.txtAbreviatura.setText(datos.getString("abreviatura"));
                 wdw_recargo.txtDescripcion.setText(datos.getString("descripcion"));
                 wdw_recargo.cbxEstado.setSelectedItem(datos.getString("estado"));
                 wdw_recargo.txtValor.setText(datos.getString("valor"));
@@ -130,6 +132,7 @@ public class AccesoCatalogoRecargo {
             datos = pst.executeQuery();
             if (datos.first()) {
                 wdw_recargo.txtIdRecargo.setText(datos.getString("id_recargo"));
+                wdw_recargo.txtAbreviatura.setText(datos.getString("abreviatura"));
                 wdw_recargo.txtDescripcion.setText(datos.getString("descripcion"));
                 wdw_recargo.cbxEstado.setSelectedItem(datos.getString("estado"));
                 wdw_recargo.txtValor.setText(datos.getString("valor"));
@@ -151,6 +154,7 @@ public class AccesoCatalogoRecargo {
             datos = pst.executeQuery();
             if (datos.first()) {
                 recargo.setId_recargo(datos.getInt("id_recargo"));
+                recargo.setAbreviatura(datos.getString("abreviatura"));
                 recargo.setDescripcion(datos.getString("descripcion"));
                 recargo.setEstado(datos.getString("estado"));
                 recargo.setValor(datos.getDouble("valor"));
@@ -176,6 +180,7 @@ public class AccesoCatalogoRecargo {
             while (tabla.next()) {
                 registros = new ObjetosRecargo();
                 registros.setId_recargo(tabla.getInt("id_recargo"));
+                registros.setAbreviatura(tabla.getString("abreviatura"));
                 registros.setDescripcion(tabla.getString("descripcion"));
                 registros.setValor(tabla.getDouble("valor"));
                 lista.add(registros);

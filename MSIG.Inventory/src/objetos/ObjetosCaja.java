@@ -1,11 +1,5 @@
 package objetos;
 
-import java.sql.Date;
-
-/**
- *
- * @author FERNANDO
- */
 public class ObjetosCaja {
 
     private String fechaInicio;

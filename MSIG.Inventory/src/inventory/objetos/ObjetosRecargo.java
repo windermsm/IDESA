@@ -3,6 +3,7 @@ package inventory.objetos;
 public class ObjetosRecargo {
     
     private int id_recargo;
+    private String abreviatura;
     private String descripcion;
     private double valor;
     private String estado;
@@ -13,6 +14,14 @@ public class ObjetosRecargo {
 
     public void setId_recargo(int id_recargo) {
         this.id_recargo = id_recargo;
+    }
+    
+    public String getAbreviatura() {
+        return abreviatura;
+    }
+
+    public void setAbreviatura(String abreviatura) {
+        this.abreviatura = abreviatura;
     }
 
     public String getDescripcion() {

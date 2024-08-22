@@ -1676,7 +1676,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
     private void mostrarRecargosGuardados() {
         ArrayList<ObjetosRecargo> listadoRecargosActivos = acceso_recargo.retornaRecargosActivos(Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText());
         for(ObjetosRecargo x : listadoRecargosActivos){
-            cbxIdRecargo.addItem(String.valueOf(x.getId_recargo()));
+            cbxIdRecargo.addItem(String.valueOf(x.getAbreviatura()));
         }
     }
     
@@ -3533,7 +3533,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         if(cbxIdRecargo.getItemCount() > 0) {
             agregarLog("Recargo seleccionado: " + cbxIdRecargo.getSelectedItem().toString());
             AccesoRecargo acceso_recargo = new AccesoRecargo();
-            ObjetosRecargo recargoSeleccionado = acceso_recargo.buscarRecargoPorId(cbxIdRecargo.getSelectedItem().toString());
+            ObjetosRecargo recargoSeleccionado = acceso_recargo.buscarRecargoPorAbreviatura(cbxIdRecargo.getSelectedItem().toString());
             agregarLog("Valor del recargo: " + recargoSeleccionado.getValor() + "%");
             this.porcentaje_recargo = String.valueOf(recargoSeleccionado.getValor());
         }

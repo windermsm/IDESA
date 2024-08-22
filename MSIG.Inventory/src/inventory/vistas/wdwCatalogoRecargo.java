@@ -19,6 +19,7 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
     public void limpiar() {
         this.txtIdRecargo.setText("");
         this.txtBuscar.setText("");
+        this.txtAbreviatura.setText("");
         this.txtDescripcion.setText("");
         this.txtValor.setText("");
         btnGuardar.setEnabled(true);
@@ -38,6 +39,8 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
         cbxEstado = new javax.swing.JComboBox<>();
         txtValor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtAbreviatura = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
         lblBuscar = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
@@ -76,6 +79,10 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Valor %");
 
+        txtAbreviatura.setBackground(new java.awt.Color(255, 255, 204));
+
+        jLabel5.setText("Abriviatura");
+
         javax.swing.GroupLayout pnlEncabezadoLayout = new javax.swing.GroupLayout(pnlEncabezado);
         pnlEncabezado.setLayout(pnlEncabezadoLayout);
         pnlEncabezadoLayout.setHorizontalGroup(
@@ -88,12 +95,16 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEncabezadoLayout.createSequentialGroup()
-                        .addComponent(txtIdRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIdRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAbreviatura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -110,7 +121,9 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(txtAbreviatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -283,14 +296,16 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        ctrl_recargo.modificarRecargo(this.txtIdRecargo.getText(), this.txtDescripcion.getText().toUpperCase(), txtValor.getText(), String.valueOf(this.cbxEstado.getSelectedItem()));
+        ctrl_recargo.modificarRecargo(this.txtAbreviatura.getText(), this.txtIdRecargo.getText(), this.txtDescripcion.getText().toUpperCase(), 
+                txtValor.getText(), String.valueOf(this.cbxEstado.getSelectedItem()));
         btnGuardar.setEnabled(true);
         ctrl_recargo.cargarDatosAlmacenados();
         limpiar();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        ctrl_recargo.guardarRecargo(this.txtDescripcion.getText().toUpperCase(), txtValor.getText(), String.valueOf(this.cbxEstado.getSelectedItem()), Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText());
+        ctrl_recargo.guardarRecargo(this.txtAbreviatura.getText(), this.txtDescripcion.getText().toUpperCase(), txtValor.getText(), 
+                String.valueOf(this.cbxEstado.getSelectedItem()), Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText());
         ctrl_recargo.cargarDatosAlmacenados();
         limpiar();
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -316,12 +331,14 @@ public class wdwCatalogoRecargo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JPanel panel_fondo_modificar_cat;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlDetalle;
     private javax.swing.JPanel pnlEncabezado;
     public javax.swing.JTable tabla_categ;
+    public static javax.swing.JTextField txtAbreviatura;
     private javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtDescripcion;
     public javax.swing.JTextField txtIdRecargo;

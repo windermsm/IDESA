@@ -20,6 +20,30 @@ public class AccesoRecargo {
             datos = pst.executeQuery();
             if (datos.first()) {
                 recargo.setId_recargo(datos.getInt("id_recargo"));
+                recargo.setAbreviatura(datos.getString("abreviatura"));
+                recargo.setDescripcion(datos.getString("descripcion"));
+                recargo.setEstado(datos.getString("estado"));
+                recargo.setValor(datos.getDouble("valor"));
+            }
+        } catch (SQLException e) {
+             return null;
+        } finally {
+            acceso.desconectar();
+        }
+        return recargo;
+    }
+    
+    public ObjetosRecargo buscarRecargoPorAbreviatura(String abreviatura) {
+        PreparedStatement pst;
+        ResultSet datos;
+        ObjetosRecargo recargo = new ObjetosRecargo();; 
+        String sql = "SELECT * FROM m_recargo WHERE abreviatura = '" + abreviatura + "'";
+        try {
+            pst = acceso.conectar().prepareStatement(sql);
+            datos = pst.executeQuery();
+            if (datos.first()) {
+                recargo.setId_recargo(datos.getInt("id_recargo"));
+                recargo.setAbreviatura(datos.getString("abreviatura"));
                 recargo.setDescripcion(datos.getString("descripcion"));
                 recargo.setEstado(datos.getString("estado"));
                 recargo.setValor(datos.getDouble("valor"));
@@ -45,6 +69,7 @@ public class AccesoRecargo {
             while (tabla.next()) {
                 registros = new ObjetosRecargo();
                 registros.setId_recargo(tabla.getInt("id_recargo"));
+                registros.setAbreviatura(tabla.getString("abreviatura"));
                 registros.setDescripcion(tabla.getString("descripcion"));
                 registros.setValor(tabla.getDouble("valor"));
                 lista.add(registros);
