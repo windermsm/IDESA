@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="595" pageHeight="785" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="391ce3cb-5a75-4ad3-b884-a9a4ead7f57b">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="47"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -270,11 +270,11 @@ where   id_factura = $P{P_ID_FACTURA}]]>
 				<text><![CDATA[ID Factura:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="124" width="72" height="12"/>
+				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="0" y="124" width="90" height="12"/>
 				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="10" isBold="true" pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[Fecha Emisión:]]></text>
+				<text><![CDATA[Fecha de Emisión:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="1a32422c-cc14-4df5-a3b4-1118bc99d235" x="436" y="160" width="55" height="12"/>
@@ -310,7 +310,7 @@ where   id_factura = $P{P_ID_FACTURA}]]>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NIT: " + $P{P_NIT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="17e0d710-bc09-44b9-bbda-1c0eddc6aa57" x="72" y="170" width="359" height="22"/>
@@ -432,7 +432,7 @@ where   id_factura = $P{P_ID_FACTURA}]]>
 				<textFieldExpression><![CDATA[$F{nombre_factura}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="17e0d710-bc09-44b9-bbda-1c0eddc6aa57" x="72" y="124" width="55" height="12"/>
+				<reportElement uuid="17e0d710-bc09-44b9-bbda-1c0eddc6aa57" x="90" y="124" width="112" height="12"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>

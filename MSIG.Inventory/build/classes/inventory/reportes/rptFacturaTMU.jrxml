@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="215" pageHeight="600" columnWidth="175" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c0140ba-9dde-4481-9059-bb252347dbb7">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="736"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Row"/>
 	<parameter name="P_ID_FACTURA" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -223,7 +223,7 @@ where   id_factura = $P{P_ID_FACTURA}]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{P_NIT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NIT: " + $P{P_NIT}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="8dfe847c-bfad-4892-a0c2-162d56983c58" x="0" y="0" width="175" height="10"/>

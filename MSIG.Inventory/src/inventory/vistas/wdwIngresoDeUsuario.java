@@ -449,6 +449,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(true);
                             Inventory.menuUsuarios.setVisible(false);
                             Inventory.menuSucursales.setVisible(false);
@@ -513,6 +514,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(true);
                             Inventory.menuUsuarios.setVisible(false); // Menu Usuarios
                             Inventory.menuSucursales.setVisible(false);
@@ -571,6 +573,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(false); //COMPLETA
                             Inventory.menuUsuarios.setVisible(false); 
                             Inventory.menuSucursales.setVisible(false);
@@ -653,6 +656,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuMarcas.setVisible(false);
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuSeries.setVisible(false); //COMPLETA
                             Inventory.menuConsultaProductos.setVisible(true);
                             
@@ -745,6 +749,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuMarcas.setVisible(false);
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuSeries.setVisible(false); //COMPLETA
                             Inventory.menuConsultaProductos.setVisible(true);
                             
@@ -975,6 +980,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(true);
                             Inventory.menuUsuarios.setVisible(false);
                             Inventory.menuSucursales.setVisible(false);
@@ -1039,6 +1045,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(true);
                             Inventory.menuUsuarios.setVisible(false); // Menu Usuarios
                             Inventory.menuSucursales.setVisible(false);
@@ -1090,6 +1097,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuCategorias.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuConsultaProductos.setVisible(true);
                             Inventory.menuUsuarios.setVisible(false); // Menu Usuarios
                             Inventory.menuSucursales.setVisible(false);
@@ -1176,6 +1184,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuMarcas.setVisible(false);
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuSeries.setVisible(true); 
                             Inventory.menuConsultaProductos.setVisible(true);
                             
@@ -1287,6 +1296,7 @@ public class wdwIngresoDeUsuario extends javax.swing.JInternalFrame {
                             Inventory.menuMarcas.setVisible(false);
                             Inventory.menuProductos.setVisible(false);
                             Inventory.menuFallas.setVisible(false);
+                            Inventory.menuRecargos.setVisible(false);
                             Inventory.menuSeries.setVisible(true);
                             Inventory.menuConsultaProductos.setVisible(true);
                             

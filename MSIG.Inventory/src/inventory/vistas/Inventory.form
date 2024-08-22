@@ -460,6 +460,23 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuRecargos">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/inventory/imagenes/imgCatalogoRecargo.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Recargos"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&lt;html&gt; &lt;table width=\&quot;200px\&quot; height=\&quot;75px\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr bgcolor=\&quot;#FE642E\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;td font color=\&quot;#FFFFFF\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt; Fallas &lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&quot;&#xd;&#xa;+ &quot;&lt;img src=\&quot;&quot; + this.getClass().getResource(&quot;/inventory/imagenes/imgTooltipMessage.png&quot;) + &quot;\&quot; /&gt;&quot;&#xd;&#xa;+ &quot;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;&lt;/td&quot;&#xd;&#xa;+ &quot;&lt;/tr colspan=\&quot;2\&quot;&gt;&quot;&#xd;&#xa;+ &quot;&lt;tr&gt;&lt;td&gt;&quot;&#xd;&#xa;+ &quot;Creaci&#xf3;n de tipos de Fallas para las Ordenes de Servicio.&quot;&#xd;&#xa;+ &quot;&lt;/td&gt;&lt;/tr&gt; &lt;table&gt; &lt;/html&gt;&quot;" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRecargosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuSeries">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

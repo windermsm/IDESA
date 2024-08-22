@@ -14,6 +14,13 @@ public class wdwCatalogoCategoriaProducto extends javax.swing.JInternalFrame {
         ctrl_categoria = new AccesoCategoriaMarca(this);
         ctrl_categoria.buscarCategoria(this.txtBuscar.getText());
     }
+    
+    public void limpiar(){
+        this.txt_id_modificar_categ.setText("");
+        this.txtBuscar.setText("");
+        this.txt_nuevo_nombre_cat.setText("");
+        btnGuardar.setEnabled(true);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -251,21 +258,20 @@ public class wdwCatalogoCategoriaProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        this.txt_id_modificar_categ.setText("");
-        this.txtBuscar.setText("");
-        this.txt_nuevo_nombre_cat.setText("");
-        btnGuardar.setEnabled(true);
+        limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         ctrl_categoria.modificar_categoria(this.txt_id_modificar_categ.getText(), this.txt_nuevo_nombre_cat.getText().toUpperCase(), String.valueOf(this.jcomboEstado.getSelectedItem()));
         btnGuardar.setEnabled(true);
         ctrl_categoria.buscarCategoria(this.txtBuscar.getText());
+        limpiar();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         ctrl_categoria.registrar_categoria(this.txt_nuevo_nombre_cat.getText().toUpperCase(), String.valueOf(this.jcomboEstado.getSelectedItem()), Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText());
         ctrl_categoria.buscarCategoria(this.txtBuscar.getText());
+        limpiar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed

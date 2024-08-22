@@ -170,7 +170,8 @@ public class AccesoFactura {
                 + "    and id_cliente = " + pFactura.getId_cliente() + "\n"
                 + "    and total_Factura = " + pFactura.getTotal_factura() + "\n"
                 + "    and estado_factura = '" + pFactura.getEstado_factura() + "'\n"
-                + "    and id_terminal = " + pFactura.getId_terminal();
+                + "    and id_terminal = " + pFactura.getId_terminal() + "\n"
+                + "    and id_empleado = " + pFactura.getId_empleado();
         
         try {
             ResultSet tabla = Acceso.listarRegistros(sql, "Factura", "Seleccionar ID Factura", pUsuario, pTerminal);
@@ -178,7 +179,7 @@ public class AccesoFactura {
                 valor = tabla.getInt("id_factura");
                 
             }
-        } catch (Exception error) {
+        } catch (SQLException error) {
             valor = 0;
         } finally {
             Acceso.desconectar();

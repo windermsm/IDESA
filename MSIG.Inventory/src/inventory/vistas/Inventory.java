@@ -235,6 +235,7 @@ public class Inventory extends javax.swing.JFrame {
         menuMarcas = new javax.swing.JMenuItem();
         menuProductos = new javax.swing.JMenuItem();
         menuFallas = new javax.swing.JMenuItem();
+        menuRecargos = new javax.swing.JMenuItem();
         menuSeries = new javax.swing.JMenuItem();
         menuConsultaProductos = new javax.swing.JMenuItem();
         sepMenuCatalogoUno = new javax.swing.JPopupMenu.Separator();
@@ -914,6 +915,27 @@ public class Inventory extends javax.swing.JFrame {
             }
         });
         menuCatalogo.add(menuFallas);
+
+        menuRecargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgCatalogoRecargo.png"))); // NOI18N
+        menuRecargos.setText("Recargos");
+        menuRecargos.setToolTipText("<html> <table width=\"200px\" height=\"75px\">"
+            + "<tr bgcolor=\"#FE642E\">"
+            + "<td font color=\"#FFFFFF\">"
+            + "<h2> Fallas </h2>"
+            + "</td>"
+            + "<img src=\"" + this.getClass().getResource("/inventory/imagenes/imgTooltipMessage.png") + "\" />"
+            + "<td>"
+            + "</td"
+            + "</tr colspan=\"2\">"
+            + "<tr><td>"
+            + "Creación de tipos de Fallas para las Ordenes de Servicio."
+            + "</td></tr> <table> </html>");
+        menuRecargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRecargosActionPerformed(evt);
+            }
+        });
+        menuCatalogo.add(menuRecargos);
 
         menuSeries.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventory/imagenes/imgBotonCodigoDeBarraMini.png"))); // NOI18N
         menuSeries.setText("Series");
@@ -2434,6 +2456,11 @@ public class Inventory extends javax.swing.JFrame {
         ventana.abrirPantalla(TomaInventario);
     }//GEN-LAST:event_menurReportesTomaDeInventaioActionPerformed
 
+    private void menuRecargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRecargosActionPerformed
+        wdwCatalogoRecargo Recargo = new wdwCatalogoRecargo();
+        ventana.abrirPantalla(Recargo);
+    }//GEN-LAST:event_menuRecargosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2558,6 +2585,7 @@ public class Inventory extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuProductosEnNegativo;
     public static javax.swing.JMenuItem menuProforma;
     public static javax.swing.JMenuItem menuProveedores;
+    public static javax.swing.JMenuItem menuRecargos;
     public static javax.swing.JMenu menuReportes;
     public static javax.swing.JMenuItem menuReportesAbonosDetalle;
     private javax.swing.JMenuItem menuReportesBonificacionesPorEmpleado;

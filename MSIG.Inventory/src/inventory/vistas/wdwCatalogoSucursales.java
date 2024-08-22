@@ -82,9 +82,7 @@ public class wdwCatalogoSucursales extends javax.swing.JInternalFrame {
     private void buscarEnRegistrosGuardados() {
         
         String busqueda = txtBuscar.getText();
-         System.out.println(1);
         if (busqueda != null || !busqueda.equals("")) {
-             System.out.println(2);
             DefaultTableModel tabla = new DefaultTableModel();
             ArrayList<ObjetosSucursal> listaSucursales = new ArrayList();
             

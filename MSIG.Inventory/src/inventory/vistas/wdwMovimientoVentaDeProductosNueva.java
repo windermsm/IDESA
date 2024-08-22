@@ -41,6 +41,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
     private String tamanio_preferido = null;
     private String maximo_permitido_cf = null;
     private AccesoArchivo archivo = new AccesoArchivo();
+    private AccesoCatalogoRecargo acceso_recargo = new AccesoCatalogoRecargo(null);
     private Matematicas matematica = new Matematicas();
     private DefaultTableModel detalle = new DefaultTableModel();
     private WindowController ventana = new WindowController();
@@ -58,6 +59,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         this.Log = "";
         
         mostrarRegistrosGuardados();
+        mostrarRecargosGuardados();
         
         agregarLog("Inicializando variables globales.");
         //El campo pos se habilita unicamente si elije tipo venta Tarjeta
@@ -274,6 +276,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         btnGeneraFEL = new javax.swing.JButton();
         txtTipoConexionFEL = new javax.swing.JComboBox<>();
         btnRecargoPropina = new javax.swing.JButton();
+        cbxIdRecargo = new javax.swing.JComboBox<>();
         pnlBusqueda = new javax.swing.JPanel();
         lblBuscar = new javax.swing.JLabel();
         btnBuscarProducto = new javax.swing.JButton();
@@ -487,18 +490,20 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSerie)
+                .addComponent(btnSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bntActivarPos)
+                .addComponent(bntActivarPos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReconectar)
+                .addComponent(btnReconectar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxIdRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRecargoPropina)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTipoConexionFEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGeneraFEL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNuevo)
@@ -515,17 +520,8 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
                     .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtIdBusqueda)
                         .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnReconectar)
-                            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnSerie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bntActivarPos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(pnlBotonesLayout.createSequentialGroup()
                         .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRecargoPropina)
                             .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnNuevo)
                                 .addComponent(btnGuardar)
@@ -535,7 +531,18 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
                             .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cbxTipoImpresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cbxTamanoImpresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxIdRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnReconectar)
+                                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSerie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bntActivarPos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnRecargoPropina))))
                 .addContainerGap())
         );
 
@@ -1665,6 +1672,14 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
         }
         
     }
+    
+    private void mostrarRecargosGuardados() {
+        ArrayList<ObjetosRecargo> listadoRecargosActivos = acceso_recargo.retornaRecargosActivos(Inventory.lblUsuario.getText(), Inventory.lblTerminal.getText());
+        for(ObjetosRecargo x : listadoRecargosActivos){
+            cbxIdRecargo.addItem(String.valueOf(x.getId_recargo()));
+        }
+    }
+    
     
     private void mostrarRegistrosGuardados(){
         
@@ -3513,6 +3528,16 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
 
     private void btnRecargoPropinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargoPropinaActionPerformed
 
+        //Validar si se usa el seleccionado o se usa el que esta configurado
+        //Si hay datos en el combobox se usa el valor de los datos
+        if(cbxIdRecargo.getItemCount() > 0) {
+            agregarLog("Recargo seleccionado: " + cbxIdRecargo.getSelectedItem().toString());
+            AccesoRecargo acceso_recargo = new AccesoRecargo();
+            ObjetosRecargo recargoSeleccionado = acceso_recargo.buscarRecargoPorId(cbxIdRecargo.getSelectedItem().toString());
+            agregarLog("Valor del recargo: " + recargoSeleccionado.getValor() + "%");
+            this.porcentaje_recargo = String.valueOf(recargoSeleccionado.getValor());
+        }
+        
         agregarLog("Porcentage Recargo: " + this.porcentaje_recargo);
 
         //Valida que se acepten recargos a la factura
@@ -3572,6 +3597,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
 
         totalFactura();
         limpiarBusqueda();
+        
     }//GEN-LAST:event_btnRecargoPropinaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3593,6 +3619,7 @@ public class wdwMovimientoVentaDeProductosNueva extends javax.swing.JInternalFra
     private javax.swing.JComboBox cbxDiasCredito;
     private javax.swing.JComboBox cbxEmpleado;
     private javax.swing.JComboBox cbxEstadoVenta;
+    private javax.swing.JComboBox<String> cbxIdRecargo;
     private javax.swing.JComboBox cbxTamanoImpresion;
     private javax.swing.JComboBox cbxTipoBusqueda;
     private javax.swing.JComboBox cbxTipoDeCliente;
